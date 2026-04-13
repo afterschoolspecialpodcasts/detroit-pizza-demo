@@ -1164,7 +1164,7 @@ p {
     @media (max-width: 600px) {
       .team__grid { grid-template-columns: 1fr; }
     }
-  </style>
+
 /* Ensure Story items have breathing room on mobile */
 @media (max-width: 768px) {
     .timeline__item, .story-intro, .press-card {
@@ -1172,3 +1172,5 @@ p {
         padding-right: 25px !important;
     }
 }
+
+
