@@ -4,470 +4,294 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Locations — Steel Pan Pizza Co. | Detroit Deep Dish</title>
-  <meta name="description" content="Find your nearest Steel Pan Pizza Co. location in Midtown Detroit, Corktown, and Ferndale. Hours, directions, and contact info.">
+  <title>Locations — Steel Pan Pizza Co.</title>
+  <meta name="description" content="Find a Steel Pan Pizza Co. location near you. Three locations across metro Detroit — Gratiot Ave., Midtown, and Ferndale.">
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .locations-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .location-card {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      border: 2px solid transparent;
-      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-    }
-    .location-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--red);
-    }
-    .location-card--flagship {
-      border-color: var(--gold);
-    }
-    .location-card__img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-    .location-card__body { padding: 1.75rem; }
-
-    .location-card__tag {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.7rem;
-      border-radius: 2rem;
-      display: inline-block;
-      margin-bottom: 0.75rem;
-      opacity: 1;
-    }
-    .location-card__tag--flagship { background: rgba(212,168,73,0.15); color: #8a6d1c; }
-    .location-card__tag--new { background: rgba(192,57,43,0.1); color: var(--red); }
-    .location-card__tag--suburb { background: rgba(26,26,26,0.08); color: var(--mid-gray); }
-
-    .location-card__name {
-      font-family: var(--font-head);
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-      opacity: 1;
-    }
-    .location-card__neighborhood {
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 1.25rem;
-      opacity: 1;
-    }
-    .location-detail {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      margin-bottom: 0.75rem;
-    }
-    .location-detail__icon {
-      width: 20px;
-      flex-shrink: 0;
-      color: var(--mid-gray);
-      margin-top: 0.1rem;
-      font-size: 0.9rem;
-    }
-    .location-detail__text {
-      font-size: 0.88rem;
-      color: var(--charcoal);
-      line-height: 1.5;
-      opacity: 1;
-    }
-    .location-detail__text a { color: var(--red); }
-    .location-card__divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 1.25rem 0;
-    }
-    .location-card__hours {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.3rem 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .hours-row { font-size: 0.82rem; opacity: 1; }
-    .hours-row strong { font-weight: 600; color: var(--charcoal); }
-    .hours-row span { color: var(--mid-gray); }
-    .location-card__actions { display: flex; gap: 0.75rem; }
-
-    .map-placeholder {
-      background: var(--charcoal);
-      border-radius: 12px;
-      overflow: hidden;
-      height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      margin-top: 4rem;
-    }
-    .map-placeholder__inner {
-      text-align: center;
-      z-index: 1;
-    }
-    .map-placeholder__icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
-    .map-placeholder__title { font-family: var(--font-head); font-size: 1.5rem; color: var(--cream); margin-bottom: 0.5rem; opacity: 1; }
-    .map-placeholder__sub { font-size: 0.9rem; color: rgba(250,247,242,0.6); opacity: 1; }
-    .map-dots {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 35% 45%, rgba(192,57,43,0.25) 0%, transparent 40%),
-        radial-gradient(circle at 65% 55%, rgba(212,168,73,0.15) 0%, transparent 30%),
-        radial-gradient(circle at 50% 30%, rgba(192,57,43,0.15) 0%, transparent 30%);
-    }
-
-    .perks-section {
-      padding: 5rem 0;
-      background: var(--warm-gray);
-    }
-    .perks-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    .perk {
-      text-align: center;
-      padding: 1.75rem 1.25rem;
-      background: #fff;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-    }
-    .perk__icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
-    .perk__title { font-family: var(--font-head); font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; opacity: 1; }
-    .perk__text { font-size: 0.85rem; color: var(--mid-gray); line-height: 1.5; opacity: 1; }
-
-    @media (max-width: 1024px) {
-      .locations-grid { grid-template-columns: 1fr 1fr; }
-      .perks-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 600px) {
-      .locations-grid { grid-template-columns: 1fr; }
-      .perks-grid { grid-template-columns: 1fr; }
-      .location-card__actions { flex-direction: column; }
-    }
-  </style>
 </head>
 <body>
 
-<!-- ══ NAVBAR ══ -->
-<nav class="navbar" role="navigation" aria-label="Main navigation">
-  <div class="navbar__inner">
-    <a href="index.html" class="navbar__logo" aria-label="Steel Pan Pizza Co. Home">
-      <img src="images/pizzalogo.PNG" alt="Steel Pan Pizza Co. Logo">
-      <div class="navbar__logo-text">Steel Pan Pizza Co.<span>Detroit-Style Deep Dish</span></div>
-    </a>
-    <ul class="navbar__links" role="list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="menu.html">Menu</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="story.html">Our Story</a></li>
-      <li><a href="catering.html">Catering</a></li>
-      <li><a href="locations.html" class="active">Locations</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="navbar__cta"><a href="menu.html" class="btn btn--primary demo-trigger">Order Now</a></div>
-    <button class="navbar__hamburger" aria-label="Open mobile menu" aria-expanded="false" id="hamburgerBtn">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- ══ MOBILE MENU ══ -->
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-  <button class="mobile-menu__close" id="menuClose" aria-label="Close menu">✕</button>
-  <a href="index.html">Home</a>
-  <a href="menu.html">Menu</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="story.html">Our Story</a>
-  <a href="catering.html">Catering</a>
-  <a href="locations.html">Locations</a>
-  <a href="contact.html">Contact</a>
-  <div class="mobile-menu__cta"><a href="menu.html" class="btn btn--primary demo-trigger">Order Now</a></div>
-</div>
-
-<!-- ══ PAGE HERO ══ -->
-<section class="page-hero" aria-labelledby="pageHeroTitle">
-  <div class="container">
-    <span class="page-hero__eyebrow">Steel Pan Pizza Co.</span>
-    <h1 class="page-hero__title" id="pageHeroTitle">Our Locations</h1>
-    <p class="page-hero__sub">Three Detroit neighborhoods. One legendary pizza. Find your nearest pan.</p>
-  </div>
-</section>
-
-<!-- ══ LOCATION CARDS ══ -->
-<section class="section" aria-labelledby="locationsTitle">
-  <div class="container">
-    <div class="text-center">
-      <span class="section-eyebrow">Where to Find Us</span>
-      <h2 id="locationsTitle" class="section-title">3 Locations Across Metro Detroit.</h2>
-    </div>
-
-    <div class="locations-grid">
-
-      <!-- Midtown -->
-      <article class="location-card location-card--flagship fade-up">
-        <img class="location-card__img" src="images/herosectionpizza.jpg" alt="Steel Pan Pizza Midtown exterior" loading="lazy">
-        <div class="location-card__body">
-          <span class="location-card__tag location-card__tag--flagship">🏆 Flagship</span>
-          <div class="location-card__name">Midtown</div>
-          <div class="location-card__neighborhood">Original Location</div>
-
-          <div class="location-detail">
-            <span class="location-detail__icon" aria-hidden="true">📍</span>
-            <div class="location-detail__text">4521 Woodward Ave<br>Detroit, MI 48201</div>
-          </div>
-          <div class="location-detail">
-            <span class="location-detail__icon" aria-hidden="true">📞</span>
-            <div class="location-detail__text"><a href="tel:+13135550192">(313) 555-0192</a></div>
-          </div>
-          <div class="location-detail">
-            <span class="location-detail__icon" aria-hidden="true">🅿️</span>
-            <div class="location-detail__text">Street parking + rear lot (validated)</div>
-          </div>
-
-          <hr class="location-card__divider">
-
-          <div class="location-card__hours" aria-label="Hours of operation">
-            <div class="hours-row"><strong>Mon–Thu</strong></div>
-            <div class="hours-row"><span>11am – 10pm</span></div>
-            <div class="hours-row"><strong>Fri–Sat</strong></div>
-            <div class="hours-row"><span>11am – 11pm</span></div>
-            <div class="hours-row"><strong>Sunday</strong></div>
-            <div class="hours-row"><span>12pm – 9pm</span></div>
-          </div>
-
-          <div class="location-card__actions">
-            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn--outline-dark" style="flex: 1; justify-content: center; font-size:0.82rem;">Get Directions</a>
-            <a href="menu.html" class="btn btn--primary demo-trigger" style="flex: 1; justify-content: center; font-size:0.82rem;">Order Now</a>
-          </div>
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Steel Pan Pizza Co. Home">
+        <img src="images/pizzalogo.PNG" alt="Steel Pan Pizza Co. Logo" class="nav-logo-img">
+        <div class="nav-logo-text">
+          Steel Pan Pizza
+          <span>Detroit Style Deep Dish</span>
         </div>
-      </article>
-
-      <!-- Corktown -->
-      <article class="location-card fade-up">
-        <img class="location-card__img" src="images/friendseatingpizza.jpg" alt="Steel Pan Pizza Corktown" loading="lazy">
-        <div class="location-card__body">
-          <span class="location-card__tag location-card__tag--new">🆕 Popular</span>
-          <div class="location-card__name">Corktown</div>
-          <div class="location-card__neighborhood">Historic Neighborhood</div>
-
-          <div class="location-detail">
-            <span class="location-detail__icon" aria-hidden="true">📍</span>
-            <div class="location-detail__text">1842 Michigan Ave<br>Detroit, MI 48216</div>
-          </div>
-          <div class="location-detail">
-            <span class="location-detail__icon" aria-hidden="true">📞</span>
-            <div class="location-detail__text"><a href="tel:+13135550194">(313) 555-0194</a></div>
-          </div>
-          <div class="location-detail">
-            <span class="location-detail__icon" aria-hidden="true">🅿️</span>
-            <div class="location-detail__text">Free street parking, adjacent city lot</div>
-          </div>
-
-          <hr class="location-card__divider">
-
-          <div class="location-card__hours" aria-label="Hours of operation">
-            <div class="hours-row"><strong>Mon–Thu</strong></div>
-            <div class="hours-row"><span>11am – 10pm</span></div>
-            <div class="hours-row"><strong>Fri–Sat</strong></div>
-            <div class="hours-row"><span>11am – 11pm</span></div>
-            <div class="hours-row"><strong>Sunday</strong></div>
-            <div class="hours-row"><span>12pm – 9pm</span></div>
-          </div>
-
-          <div class="location-card__actions">
-            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn--outline-dark" style="flex: 1; justify-content: center; font-size:0.82rem;">Get Directions</a>
-            <a href="menu.html" class="btn btn--primary demo-trigger" style="flex: 1; justify-content: center; font-size:0.82rem;">Order Now</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Ferndale -->
-      <article class="location-card fade-up">
-        <img class="location-card__img" src="images/womaneatinpizza.jpg" alt="Steel Pan Pizza Ferndale" loading="lazy">
-        <div class="location-card__body">
-          <span class="location-card__tag location-card__tag--suburb">📍 Suburb</span>
-          <div class="location-card__name">Ferndale</div>
-          <div class="location-card__neighborhood">Metro Detroit</div>
-
-          <div class="location-detail">
-            <span class="location-detail__icon" aria-hidden="true">📍</span>
-            <div class="location-detail__text">291 Nine Mile Rd<br>Ferndale, MI 48220</div>
-          </div>
-          <div class="location-detail">
-            <span class="location-detail__icon" aria-hidden="true">📞</span>
-            <div class="location-detail__text"><a href="tel:+12485550197">(248) 555-0197</a></div>
-          </div>
-          <div class="location-detail">
-            <span class="location-detail__icon" aria-hidden="true">🅿️</span>
-            <div class="location-detail__text">Dedicated free parking lot (40 spaces)</div>
-          </div>
-
-          <hr class="location-card__divider">
-
-          <div class="location-card__hours" aria-label="Hours of operation">
-            <div class="hours-row"><strong>Mon–Thu</strong></div>
-            <div class="hours-row"><span>11am – 10pm</span></div>
-            <div class="hours-row"><strong>Fri–Sat</strong></div>
-            <div class="hours-row"><span>11am – 11pm</span></div>
-            <div class="hours-row"><strong>Sunday</strong></div>
-            <div class="hours-row"><span>12pm – 9pm</span></div>
-          </div>
-
-          <div class="location-card__actions">
-            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn--outline-dark" style="flex: 1; justify-content: center; font-size:0.82rem;">Get Directions</a>
-            <a href="menu.html" class="btn btn--primary demo-trigger" style="flex: 1; justify-content: center; font-size:0.82rem;">Order Now</a>
-          </div>
-        </div>
-      </article>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="story.html">Our Story</a></li>
+        <li><a href="catering.html">Catering</a></li>
+        <li><a href="locations.html" class="active">Locations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#" class="nav-cta demo-trigger">Order Now</a></li>
+      </ul>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
 
-    <!-- Map Placeholder -->
-    <div class="map-placeholder fade-up" role="img" aria-label="Map showing Steel Pan Pizza locations across Detroit">
-      <div class="map-dots" aria-hidden="true"></div>
-      <div class="map-placeholder__inner">
-        <span class="map-placeholder__icon" aria-hidden="true">🗺️</span>
-        <div class="map-placeholder__title">Metro Detroit Locations</div>
-        <p class="map-placeholder__sub">Midtown · Corktown · Ferndale<br>Interactive map available on the live site</p>
-      </div>
-    </div>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation" aria-hidden="true">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#x2715;</button>
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="story.html">Our Story</a>
+    <a href="catering.html">Catering</a>
+    <a href="locations.html">Locations</a>
+    <a href="contact.html">Contact</a>
+    <a href="#" class="nav-cta-mobile demo-trigger">Order Now</a>
   </div>
-</section>
 
-<!-- ══ PERKS ══ -->
-<section class="perks-section" aria-labelledby="perksTitle">
-  <div class="container">
-    <div class="text-center">
-      <span class="section-eyebrow">At Every Location</span>
-      <h2 id="perksTitle" class="section-title">The Full Steel Pan Experience.</h2>
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="container page-header-inner">
+      <span class="section-label">Find Us</span>
+      <h1>Three Locations,<br>One Standard of Excellence</h1>
+      <p>Whether you're east side, Midtown, or in the suburbs — there's a Steel Pan close by and a pie waiting in the oven.</p>
     </div>
-    <div class="perks-grid">
-      <div class="perk fade-up">
-        <span class="perk__icon" aria-hidden="true">🍺</span>
-        <div class="perk__title">Full Bar</div>
-        <p class="perk__text">Craft beers on tap, Michigan wines, and a full cocktail list. Local craft first, always.</p>
-      </div>
-      <div class="perk fade-up">
-        <span class="perk__icon" aria-hidden="true">📺</span>
-        <div class="perk__title">Game Day Ready</div>
-        <p class="perk__text">Multiple screens at every location. Lions. Red Wings. Tigers. We've got your game covered.</p>
-      </div>
-      <div class="perk fade-up">
-        <span class="perk__icon" aria-hidden="true">🛵</span>
-        <div class="perk__title">Delivery Available</div>
-        <p class="perk__text">Delivery within 5 miles of each location. Order direct or through your favorite app.</p>
-      </div>
-      <div class="perk fade-up">
-        <span class="perk__icon" aria-hidden="true">♿</span>
-        <div class="perk__title">Fully Accessible</div>
-        <p class="perk__text">All three locations are ADA accessible, with accessible restrooms and seating.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </header>
 
-<!-- ══ FOOTER ══ -->
-<footer class="footer" role="contentinfo">
-  <div class="container">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <img src="images/pizzalogo.PNG" alt="Steel Pan Pizza Co." loading="lazy">
-        <p>Detroit's home of authentic square deep dish since 2011.</p>
-        <div class="footer__social" aria-label="Social media links">
-          <a href="#" aria-label="Facebook">f</a>
-          <a href="#" aria-label="Instagram">ig</a>
-          <a href="#" aria-label="Twitter/X">x</a>
+  <!-- LOCATIONS GRID -->
+  <section class="section section--cream" aria-labelledby="locations-title">
+    <div class="container">
+      <div class="locations-grid">
+
+        <!-- Location 1 -->
+        <article class="location-card fade-up">
+          <div class="location-map-placeholder" aria-label="Map placeholder for Gratiot Avenue location"></div>
+          <div class="location-card-body">
+            <span class="location-tag">&#11088; Original Location</span>
+            <h3>Gratiot Ave. Flagship</h3>
+            <div class="location-detail">
+              <span class="location-detail-icon" aria-hidden="true">&#128205;</span>
+              <span>1842 Gratiot Ave, Detroit, MI 48207</span>
+            </div>
+            <div class="location-detail">
+              <span class="location-detail-icon" aria-hidden="true">&#128222;</span>
+              <span>(313) 555-0182</span>
+            </div>
+            <div class="location-detail">
+              <span class="location-detail-icon" aria-hidden="true">&#128681;</span>
+              <span>Dine-in &bull; Carry-out &bull; Catering pick-up</span>
+            </div>
+            <div class="location-hours">
+              <h4>Hours This Week</h4>
+              <div class="hours-row"><span>Mon &ndash; Thu</span><span>11:00 AM &ndash; 9:00 PM</span></div>
+              <div class="hours-row hours-today"><span>Fri &ndash; Sat</span><span>11:00 AM &ndash; 10:00 PM</span></div>
+              <div class="hours-row"><span>Sunday</span><span>12:00 PM &ndash; 8:00 PM</span></div>
+            </div>
+            <div class="mt-24">
+              <a href="#" class="btn btn-primary demo-trigger">Order from This Location</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Location 2 -->
+        <article class="location-card fade-up">
+          <div class="location-map-placeholder" aria-label="Map placeholder for Midtown location"></div>
+          <div class="location-card-body">
+            <span class="location-tag">Midtown</span>
+            <h3>Woodward Avenue &mdash; Midtown</h3>
+            <div class="location-detail">
+              <span class="location-detail-icon" aria-hidden="true">&#128205;</span>
+              <span>4210 Woodward Ave, Detroit, MI 48201</span>
+            </div>
+            <div class="location-detail">
+              <span class="location-detail-icon" aria-hidden="true">&#128222;</span>
+              <span>(313) 555-0247</span>
+            </div>
+            <div class="location-detail">
+              <span class="location-detail-icon" aria-hidden="true">&#128681;</span>
+              <span>Dine-in &bull; Carry-out &bull; Late-night Fri &amp; Sat</span>
+            </div>
+            <div class="location-hours">
+              <h4>Hours This Week</h4>
+              <div class="hours-row"><span>Mon &ndash; Thu</span><span>11:00 AM &ndash; 9:00 PM</span></div>
+              <div class="hours-row hours-today"><span>Fri &ndash; Sat</span><span>11:00 AM &ndash; 11:00 PM</span></div>
+              <div class="hours-row"><span>Sunday</span><span>12:00 PM &ndash; 8:00 PM</span></div>
+            </div>
+            <div class="mt-24">
+              <a href="#" class="btn btn-primary demo-trigger">Order from This Location</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Location 3 -->
+        <article class="location-card fade-up">
+          <div class="location-map-placeholder" aria-label="Map placeholder for Ferndale location"></div>
+          <div class="location-card-body">
+            <span class="location-tag">Ferndale</span>
+            <h3>Nine Mile Road &mdash; Ferndale</h3>
+            <div class="location-detail">
+              <span class="location-detail-icon" aria-hidden="true">&#128205;</span>
+              <span>339 W. Nine Mile Rd, Ferndale, MI 48220</span>
+            </div>
+            <div class="location-detail">
+              <span class="location-detail-icon" aria-hidden="true">&#128222;</span>
+              <span>(248) 555-0391</span>
+            </div>
+            <div class="location-detail">
+              <span class="location-detail-icon" aria-hidden="true">&#128681;</span>
+              <span>Dine-in &bull; Carry-out &bull; Full bar</span>
+            </div>
+            <div class="location-hours">
+              <h4>Hours This Week</h4>
+              <div class="hours-row"><span>Mon &ndash; Thu</span><span>11:00 AM &ndash; 9:00 PM</span></div>
+              <div class="hours-row hours-today"><span>Fri &ndash; Sat</span><span>11:00 AM &ndash; 10:00 PM</span></div>
+              <div class="hours-row"><span>Sunday</span><span>12:00 PM &ndash; 8:00 PM</span></div>
+            </div>
+            <div class="mt-24">
+              <a href="#" class="btn btn-primary demo-trigger">Order from This Location</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SPLIT: PHOTO + DELIVERY INFO -->
+  <section class="split" aria-label="Delivery and carry-out information">
+    <img src="images/maneatingpizza.jpg" alt="Customer enjoying a fresh Steel Pan pizza" class="split-img" loading="lazy">
+    <div class="split-body">
+      <span class="section-label">Carry-Out &amp; Delivery</span>
+      <h2 class="section-title">We'll Come to You</h2>
+      <p class="section-subtitle">All three locations offer carry-out. Delivery is available within a 5-mile radius of each location through our order portal. Pies baked fresh per order — please allow 25&ndash;35 minutes for deep dish.</p>
+      <a href="#" class="btn btn-primary demo-trigger">Order Online Now</a>
+    </div>
+  </section>
+
+  <!-- ACCESSIBILITY NOTE -->
+  <section class="section section--cream" aria-labelledby="accessibility-title">
+    <div class="container">
+      <span class="section-label">Accessibility &amp; Amenities</span>
+      <h2 class="section-title" id="accessibility-title">All Locations Are Fully Accessible</h2>
+      <div class="pillars-grid">
+        <div class="pillar-card fade-up">
+          <span class="pillar-icon">&#9855;&#65039;</span>
+          <h3>Wheelchair Accessible</h3>
+          <p>All dining rooms, restrooms, and ordering areas meet ADA accessibility standards at every location.</p>
+        </div>
+        <div class="pillar-card fade-up">
+          <span class="pillar-icon">&#127831;</span>
+          <h3>Kids Menu Available</h3>
+          <p>Smaller pies and kid-friendly toppings. High chairs available at all locations.</p>
+        </div>
+        <div class="pillar-card fade-up">
+          <span class="pillar-icon">&#127789;</span>
+          <h3>Gluten-Free Crust</h3>
+          <p>Available at all locations for +$4. Prepared in a separate designated area to minimize cross-contamination.</p>
+        </div>
+        <div class="pillar-card fade-up">
+          <span class="pillar-icon">&#128663;</span>
+          <h3>Free Parking</h3>
+          <p>Dedicated off-street parking at Gratiot Ave. and Ferndale. Midtown has street parking and nearby parking structures.</p>
         </div>
       </div>
-      <div>
-        <div class="footer__col-title">Navigate</div>
-        <ul class="footer__links" role="list">
-          <li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li>
-          <li><a href="gallery.html">Gallery</a></li><li><a href="story.html">Our Story</a></li>
-          <li><a href="catering.html">Catering</a></li><li><a href="locations.html">Locations</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <h2>Find Your Favorite Location.</h2>
+    <p>Walk-ins always welcome. No reservation required — just bring your appetite.</p>
+    <a href="#" class="btn btn-outline demo-trigger">Order for Pickup &rarr;</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/pizzalogo.PNG" alt="Steel Pan Pizza Co." class="footer-logo-img" loading="lazy">
+          <div class="footer-logo-name">Steel Pan Pizza Co.</div>
+          <p>Detroit's original deep dish. Serving our city with pride since 2004.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="story.html">Our Story</a></li>
+            <li><a href="catering.html">Catering</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <p>Mon&ndash;Thu: 11am &ndash; 9pm<br>Fri&ndash;Sat: 11am &ndash; 10pm<br>Sunday: 12pm &ndash; 8pm</p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>1842 Gratiot Ave<br>Detroit, MI 48207<br><br>(313) 555-0182<br>hello@steelpanpizza.com</p>
+        </div>
       </div>
-      <div>
-        <div class="footer__col-title">Hours</div>
-        <address class="footer__address" style="font-style:normal;">
-          <strong>Mon–Thu</strong> 11am – 10pm<br>
-          <strong>Fri–Sat</strong> 11am – 11pm<br>
-          <strong>Sunday</strong> 12pm – 9pm
-        </address>
-      </div>
-      <div>
-        <div class="footer__col-title">Detroit HQ</div>
-        <address class="footer__address" style="font-style:normal;">
-          <strong>Midtown Location</strong>
-          4521 Woodward Ave, Detroit, MI 48201<br><br>
-          <a href="tel:+13135550192" style="color:var(--gold);">(313) 555-0192</a>
-        </address>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Steel Pan Pizza Co. All rights reserved. &mdash; Demo site only.</p>
+        <p>Built by <a href="https://dysondigital.com" target="_blank" rel="noopener noreferrer">Dyson Digital</a></p>
       </div>
     </div>
-    <div class="footer__bottom">
-      <span>© 2024 Steel Pan Pizza Co. All rights reserved.</span>
-      <span>Built by <a href="https://www.dysondigital.co" target="_blank" rel="noopener">Dyson Digital</a></span>
+  </footer>
+
+  <!-- DEMO MODAL -->
+  <div class="demo-modal-bg" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle">
+    <div class="demo-modal">
+      <span class="demo-modal-icon">&#128203;</span>
+      <h2 id="demoModalTitle">Demo Site Notice</h2>
+      <p>This is a <strong>demo site</strong> built for portfolio display purposes only. No orders can be placed, and no transactions will be processed.</p>
+      <button class="demo-modal-close-btn" id="demoModalClose">Got It</button>
+      <p class="demo-modal-built">Built by <strong>Dyson Digital</strong></p>
     </div>
   </div>
-</footer>
 
-<!-- ══ DEMO MODAL ══ -->
-<div class="demo-modal-overlay" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle">
-  <div class="demo-modal">
-    <div class="demo-modal__icon" aria-hidden="true">🍕</div>
-    <h2 class="demo-modal__title" id="demoModalTitle">Demo Site Only</h2>
-    <p class="demo-modal__body">This is a demo site for display purposes only. No orders can be placed.</p>
-    <p class="demo-modal__credit">Built by Dyson Digital</p>
-    <button class="demo-modal__close" id="demoClose">Got It</button>
-  </div>
-</div>
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
 
-<script>
-  const demoModal = document.getElementById('demoModal');
-  document.querySelectorAll('.demo-trigger').forEach(btn => {
-    btn.addEventListener('click', e => { e.preventDefault(); demoModal.classList.add('is-active'); });
-  });
-  document.getElementById('demoClose').addEventListener('click', () => demoModal.classList.remove('is-active'));
-  demoModal.addEventListener('click', e => { if (e.target === demoModal) demoModal.classList.remove('is-active'); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') demoModal.classList.remove('is-active'); });
+    function openMenu() {
+      mobileMenu.classList.add('is-open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
+    function closeMenu() {
+      mobileMenu.classList.remove('is-open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
 
-<!-- ══ MOBILE NAV ══ -->
-<script>
-  const hamburgerBtn = document.getElementById('hamburgerBtn');
-  const mobileMenu   = document.getElementById('mobileMenu');
-  const menuClose    = document.getElementById('menuClose');
-  function openMenu() { mobileMenu.classList.add('is-open'); requestAnimationFrame(() => mobileMenu.setAttribute('aria-hidden','false')); hamburgerBtn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
-  function closeMenu() { mobileMenu.setAttribute('aria-hidden','true'); hamburgerBtn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; setTimeout(()=>mobileMenu.classList.remove('is-open'),300); }
-  hamburgerBtn.addEventListener('click', openMenu);
-  menuClose.addEventListener('click', closeMenu);
-  mobileMenu.addEventListener('click', (e) => { if (e.target.closest('a')) closeMenu(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-</script>
+    hamburgerBtn.addEventListener('click', openMenu);
+    mobileMenuClose.addEventListener('click', closeMenu);
+    mobileMenu.addEventListener('click', (e) => { if (e.target.closest('a')) closeMenu(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+    const demoModal = document.getElementById('demoModal');
+    const demoModalClose = document.getElementById('demoModalClose');
+    document.querySelectorAll('.demo-trigger').forEach(btn => {
+      btn.addEventListener('click', (e) => { e.preventDefault(); demoModal.classList.add('is-open'); });
+    });
+    demoModalClose.addEventListener('click', () => demoModal.classList.remove('is-open'));
+    demoModal.addEventListener('click', (e) => { if (e.target === demoModal) demoModal.classList.remove('is-open'); });
+
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>

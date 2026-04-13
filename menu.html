@@ -4,628 +4,295 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Menu — Steel Pan Pizza Co. | Detroit-Style Deep Dish</title>
-  <meta name="description" content="Browse the full Steel Pan Pizza Co. menu. Detroit-style deep dish pies, starters, sides, salads, and drinks.">
+  <title>Menu — Steel Pan Pizza Co.</title>
+  <meta name="description" content="Explore the full Steel Pan Pizza Co. menu. Detroit-style deep dish, appetizers, salads, and desserts.">
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .menu-tabs {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 2.5rem 0 3.5rem;
-    }
-    .menu-tab {
-      padding: 0.65rem 1.4rem;
-      border: 2px solid var(--border);
-      border-radius: 2rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      background: transparent;
-      color: var(--charcoal);
-      font-family: var(--font-body);
-      transition: all 0.2s;
-    }
-    .menu-tab:hover,
-    .menu-tab.active {
-      background: var(--red);
-      border-color: var(--red);
-      color: #fff;
-    }
-
-    .menu-section { display: none; }
-    .menu-section.active { display: block; }
-
-    .menu-section__header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 2px solid var(--border);
-    }
-    .menu-section__icon {
-      font-size: 2rem;
-      flex-shrink: 0;
-    }
-
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-
-    .menu-item {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 1.25rem;
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      transition: box-shadow 0.22s, transform 0.22s;
-    }
-    .menu-item:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-3px);
-    }
-    .menu-item--wide {
-      grid-column: 1 / -1;
-      grid-template-columns: 200px 1fr;
-    }
-    .menu-item__img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      min-height: 120px;
-    }
-    .menu-item__body {
-      padding: 1.25rem 1.25rem 1.25rem 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .menu-item__label {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 0.3rem;
-      opacity: 1;
-    }
-    .menu-item__name {
-      font-family: var(--font-head);
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 0.35rem;
-      color: var(--charcoal);
-      opacity: 1;
-    }
-    .menu-item__desc {
-      font-size: 0.85rem;
-      color: var(--mid-gray);
-      line-height: 1.5;
-      margin-bottom: 0.75rem;
-      opacity: 1;
-    }
-    .menu-item__footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .menu-item__price {
-      font-family: var(--font-head);
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--charcoal);
-      opacity: 1;
-    }
-    .menu-item__add {
-      background: var(--red);
-      color: #fff;
-      border: none;
-      border-radius: var(--radius);
-      padding: 0.45rem 1rem;
-      font-family: var(--font-body);
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.18s;
-    }
-    .menu-item__add:hover { background: var(--red-dark); }
-
-    .build-your-own {
-      background: var(--charcoal);
-      border-radius: 12px;
-      padding: 3rem;
-      margin-top: 2rem;
-      text-align: center;
-    }
-    .build-your-own h3 {
-      font-size: 1.8rem;
-      color: var(--cream);
-      margin-bottom: 0.75rem;
-      opacity: 1;
-    }
-    .build-your-own p {
-      color: rgba(250,247,242,0.7);
-      margin-bottom: 1.5rem;
-      opacity: 1;
-    }
-
-    .allergen-note {
-      background: var(--warm-gray);
-      border-left: 3px solid var(--gold);
-      padding: 1rem 1.5rem;
-      border-radius: 0 var(--radius) var(--radius) 0;
-      margin-top: 3rem;
-      font-size: 0.85rem;
-      color: var(--mid-gray);
-      line-height: 1.6;
-      opacity: 1;
-    }
-
-    @media (max-width: 768px) {
-      .menu-grid { grid-template-columns: 1fr; }
-      .menu-item--wide { grid-template-columns: 100px 1fr; }
-      .menu-item--wide .menu-item__img { min-height: 100px; }
-    }
-    @media (max-width: 480px) {
-      .menu-item { grid-template-columns: 90px 1fr; }
-      .menu-item--wide { grid-template-columns: 90px 1fr; }
-    }
-  </style>
 </head>
 <body>
 
-<!-- ══ NAVBAR ══ -->
-<nav class="navbar" role="navigation" aria-label="Main navigation">
-  <div class="navbar__inner">
-    <a href="index.html" class="navbar__logo" aria-label="Steel Pan Pizza Co. Home">
-      <img src="images/pizzalogo.PNG" alt="Steel Pan Pizza Co. Logo">
-      <div class="navbar__logo-text">Steel Pan Pizza Co.<span>Detroit-Style Deep Dish</span></div>
-    </a>
-    <ul class="navbar__links" role="list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="menu.html" class="active">Menu</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="story.html">Our Story</a></li>
-      <li><a href="catering.html">Catering</a></li>
-      <li><a href="locations.html">Locations</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="navbar__cta">
-      <a href="menu.html" class="btn btn--primary demo-trigger">Order Now</a>
-    </div>
-    <button class="navbar__hamburger" aria-label="Open mobile menu" aria-expanded="false" id="hamburgerBtn">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- ══ MOBILE MENU ══ -->
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-  <button class="mobile-menu__close" id="menuClose" aria-label="Close menu">✕</button>
-  <a href="index.html">Home</a>
-  <a href="menu.html">Menu</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="story.html">Our Story</a>
-  <a href="catering.html">Catering</a>
-  <a href="locations.html">Locations</a>
-  <a href="contact.html">Contact</a>
-  <div class="mobile-menu__cta"><a href="menu.html" class="btn btn--primary demo-trigger">Order Now</a></div>
-</div>
-
-<!-- ══ PAGE HERO ══ -->
-<section class="page-hero" aria-labelledby="pageHeroTitle">
-  <div class="container">
-    <span class="page-hero__eyebrow">Steel Pan Pizza Co.</span>
-    <h1 class="page-hero__title" id="pageHeroTitle">Our Menu</h1>
-    <p class="page-hero__sub">Every item made fresh daily. Every pan pulled from the oven to order.</p>
-  </div>
-</section>
-
-<!-- ══ MENU CONTENT ══ -->
-<section class="section">
-  <div class="container">
-    <!-- Tabs -->
-    <div class="menu-tabs" role="tablist" aria-label="Menu categories">
-      <button class="menu-tab active" role="tab" aria-selected="true" data-tab="pies">🍕 Signature Pies</button>
-      <button class="menu-tab" role="tab" aria-selected="false" data-tab="build">🔧 Build Your Own</button>
-      <button class="menu-tab" role="tab" aria-selected="false" data-tab="starters">🥗 Starters</button>
-      <button class="menu-tab" role="tab" aria-selected="false" data-tab="sides">🍞 Sides</button>
-      <button class="menu-tab" role="tab" aria-selected="false" data-tab="drinks">🥤 Drinks</button>
-    </div>
-
-    <!-- SIGNATURE PIES -->
-    <div class="menu-section active" id="tab-pies" role="tabpanel">
-      <div class="menu-section__header">
-        <span class="menu-section__icon" aria-hidden="true">🍕</span>
-        <div>
-          <h2 style="font-size: 1.6rem; margin-bottom: 0.2rem;">Signature Pies</h2>
-          <p style="color: var(--mid-gray); font-size: 0.9rem; opacity: 1;">All pies available in 8" personal or 10"×14" party size. GF crust +$3.</p>
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Steel Pan Pizza Co. Home">
+        <img src="images/pizzalogo.PNG" alt="Steel Pan Pizza Co. Logo" class="nav-logo-img">
+        <div class="nav-logo-text">
+          Steel Pan Pizza
+          <span>Detroit Style Deep Dish</span>
         </div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html" class="active">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="story.html">Our Story</a></li>
+        <li><a href="catering.html">Catering</a></li>
+        <li><a href="locations.html">Locations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#" class="nav-cta demo-trigger">Order Now</a></li>
+      </ul>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation" aria-hidden="true">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#x2715;</button>
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="story.html">Our Story</a>
+    <a href="catering.html">Catering</a>
+    <a href="locations.html">Locations</a>
+    <a href="contact.html">Contact</a>
+    <a href="#" class="nav-cta-mobile demo-trigger">Order Now</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="container page-header-inner">
+      <span class="section-label">The Full Menu</span>
+      <h1>Built for the Bold &amp; Hungry</h1>
+      <p>Every item made fresh, every day. Our deep dish pies are baked to order in seasoned steel pans — plan for 30 minutes and enjoy every second.</p>
+    </div>
+  </header>
+
+  <!-- MENU SECTION -->
+  <section class="section section--cream" aria-labelledby="deep-dish-title">
+    <div class="container">
+      <div class="menu-categories" role="list" aria-label="Menu categories">
+        <button class="menu-cat-btn active" aria-pressed="true">All</button>
+        <button class="menu-cat-btn" aria-pressed="false">Deep Dish</button>
+        <button class="menu-cat-btn" aria-pressed="false">Appetizers</button>
+        <button class="menu-cat-btn" aria-pressed="false">Salads</button>
+        <button class="menu-cat-btn" aria-pressed="false">Desserts</button>
+        <button class="menu-cat-btn" aria-pressed="false">Drinks</button>
       </div>
-      <div class="menu-grid">
-        <article class="menu-item menu-item--wide fade-up">
-          <img class="menu-item__img" src="images/menupicture1.PNG" alt="The Detroit Classic pizza" loading="lazy">
-          <div class="menu-item__body">
-            <div>
-              <div class="menu-item__label">Signature · Best Seller</div>
-              <div class="menu-item__name">The Detroit Classic</div>
-              <p class="menu-item__desc">Wisconsin brick cheese pressed to the edges, our slow-simmered house red sauce ladled on top, finished with crispy cupped pepperoni. This is the one that started it all.</p>
-            </div>
-            <div class="menu-item__footer">
-              <div class="menu-item__price">Personal $18 / Party $32</div>
-              <button class="menu-item__add demo-trigger">Add to Order</button>
-            </div>
-          </div>
-        </article>
-        <article class="menu-item menu-item--wide fade-up">
-          <img class="menu-item__img" src="images/menupicture2.jpg" alt="Corner King pizza" loading="lazy">
-          <div class="menu-item__body">
-            <div>
-              <div class="menu-item__label">Fan Favorite</div>
-              <div class="menu-item__name">Corner King</div>
-              <p class="menu-item__desc">Double the cheese all the way to the edges for maximum caramelization. Italian sausage crumble, roasted bell peppers, and a drizzle of hot honey.</p>
-            </div>
-            <div class="menu-item__footer">
-              <div class="menu-item__price">Personal $21 / Party $37</div>
-              <button class="menu-item__add demo-trigger">Add to Order</button>
+
+      <!-- DEEP DISH -->
+      <h2 class="section-title" id="deep-dish-title">Deep Dish Pies</h2>
+      <p class="section-subtitle">All pies serve 2&ndash;4. Available in Classic 8&quot;, Large 10&quot;, and Party 14&quot;. Gluten-free crust available +$4.</p>
+      <div class="menu-grid mt-40">
+        <article class="menu-card fade-up">
+          <img src="images/menupicture1.PNG" alt="Classic Red Top Detroit pizza" class="menu-card-img" loading="lazy">
+          <div class="menu-card-body">
+            <span class="menu-card-tag">Signature</span>
+            <h3>The Classic Red Top</h3>
+            <p>Wisconsin brick cheese to the edges, topped with our roasted San Marzano tomato sauce in the classic Detroit racing stripe finish.</p>
+            <div class="menu-card-footer">
+              <span class="menu-price">$22</span>
+              <a href="#" class="btn btn-primary demo-trigger">Order</a>
             </div>
           </div>
         </article>
-        <article class="menu-item fade-up">
-          <img class="menu-item__img" src="images/menupicture3.jpg" alt="Motor City White pizza" loading="lazy">
-          <div class="menu-item__body">
-            <div>
-              <div class="menu-item__label">Chef's Pick</div>
-              <div class="menu-item__name">Motor City White</div>
-              <p class="menu-item__desc">Roasted garlic cream base, ricotta dollops, mozzarella, fresh basil, maldon sea salt.</p>
-            </div>
-            <div class="menu-item__footer">
-              <div class="menu-item__price">from $20</div>
-              <button class="menu-item__add demo-trigger">Add to Order</button>
+        <article class="menu-card fade-up">
+          <img src="images/menupicture2.jpg" alt="Pepperoni Motown deep dish pizza" class="menu-card-img" loading="lazy">
+          <div class="menu-card-body">
+            <span class="menu-card-tag">Bestseller</span>
+            <h3>Pepperoni Motown</h3>
+            <p>Double-cupped pepperoni tucked beneath the brick cheese so the heat cups them into crispy, smoky gems. A Detroit staple.</p>
+            <div class="menu-card-footer">
+              <span class="menu-price">$26</span>
+              <a href="#" class="btn btn-primary demo-trigger">Order</a>
             </div>
           </div>
         </article>
-        <article class="menu-item fade-up">
-          <img class="menu-item__img" src="images/menupicture4.jpg" alt="The Rustbelt pizza" loading="lazy">
-          <div class="menu-item__body">
-            <div>
-              <div class="menu-item__label">New Arrival</div>
-              <div class="menu-item__name">The Rustbelt</div>
-              <p class="menu-item__desc">Smoked brisket, caramelized onion, pickled jalapeño, smoky BBQ, crispy onion strings.</p>
-            </div>
-            <div class="menu-item__footer">
-              <div class="menu-item__price">from $24</div>
-              <button class="menu-item__add demo-trigger">Add to Order</button>
+        <article class="menu-card fade-up">
+          <img src="images/menupicture3.jpg" alt="Gratiot Avenue Garden vegetarian pizza" class="menu-card-img" loading="lazy">
+          <div class="menu-card-body">
+            <span class="menu-card-tag">Vegetarian</span>
+            <h3>Gratiot Ave. Garden</h3>
+            <p>Caramelized mushrooms, roasted red peppers, fresh spinach, and garlic olive oil. Proves that meatless can be magnificent.</p>
+            <div class="menu-card-footer">
+              <span class="menu-price">$24</span>
+              <a href="#" class="btn btn-primary demo-trigger">Order</a>
             </div>
           </div>
         </article>
-        <article class="menu-item fade-up">
-          <img class="menu-item__img" src="images/menupicture1.PNG" alt="The Forager mushroom pizza" loading="lazy">
-          <div class="menu-item__body">
-            <div>
-              <div class="menu-item__label">Vegetarian</div>
-              <div class="menu-item__name">The Forager</div>
-              <p class="menu-item__desc">Wild mushroom medley, truffle oil, fontina cheese, thyme, red onion, arugula finish.</p>
-            </div>
-            <div class="menu-item__footer">
-              <div class="menu-item__price">from $19</div>
-              <button class="menu-item__add demo-trigger">Add to Order</button>
+        <article class="menu-card fade-up">
+          <img src="images/menupicture4.jpg" alt="East Side Meat Feast pizza" class="menu-card-img" loading="lazy">
+          <div class="menu-card-body">
+            <span class="menu-card-tag">Meat Lover</span>
+            <h3>East Side Meat Feast</h3>
+            <p>Italian sausage, pepperoni, smoked bacon, and ground beef layered beneath a blanket of brick and mozzarella. Legendary.</p>
+            <div class="menu-card-footer">
+              <span class="menu-price">$29</span>
+              <a href="#" class="btn btn-primary demo-trigger">Order</a>
             </div>
           </div>
         </article>
-        <article class="menu-item fade-up">
-          <img class="menu-item__img" src="images/menupicture2.jpg" alt="Woodward Ave pizza" loading="lazy">
-          <div class="menu-item__body">
-            <div>
-              <div class="menu-item__label">Spicy</div>
-              <div class="menu-item__name">Woodward Ave</div>
-              <p class="menu-item__desc">Ghost pepper sauce, chorizo, mozzarella, banana peppers, sour cream drizzle.</p>
+        <article class="menu-card fade-up">
+          <img src="images/womaneatinpizza.jpg" alt="White pizza with ricotta" class="menu-card-img" loading="lazy">
+          <div class="menu-card-body">
+            <span class="menu-card-tag">House Specialty</span>
+            <h3>The White Out</h3>
+            <p>House-made ricotta, garlic cream sauce, fresh basil, sun-dried tomatoes, and a drizzle of chili oil. No red sauce — all impact.</p>
+            <div class="menu-card-footer">
+              <span class="menu-price">$25</span>
+              <a href="#" class="btn btn-primary demo-trigger">Order</a>
             </div>
-            <div class="menu-item__footer">
-              <div class="menu-item__price">from $22</div>
-              <button class="menu-item__add demo-trigger">Add to Order</button>
+          </div>
+        </article>
+        <article class="menu-card fade-up">
+          <img src="images/maneatingpizza.jpg" alt="Buffalo Chicken deep dish pizza" class="menu-card-img" loading="lazy">
+          <div class="menu-card-body">
+            <span class="menu-card-tag">Fan Favorite</span>
+            <h3>Buffalo Belle Isle</h3>
+            <p>Crispy buffalo chicken, celery-infused cream cheese, brick mozzarella, and a finishing drizzle of hot honey. Addictive.</p>
+            <div class="menu-card-footer">
+              <span class="menu-price">$27</span>
+              <a href="#" class="btn btn-primary demo-trigger">Order</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- APPETIZERS -->
+      <h2 class="section-title mt-72" id="apps-title">Starters &amp; Sides</h2>
+      <p class="section-subtitle">The perfect warm-up while your pie bakes.</p>
+      <div class="menu-grid mt-40">
+        <article class="menu-card fade-up">
+          <div class="menu-card-body pt-32">
+            <span class="menu-card-tag">Starter</span>
+            <h3>Garlic Knots (6)</h3>
+            <p>Pillowy knots of our scratch dough, bathed in roasted garlic butter and fresh herbs. Served with house marinara.</p>
+            <div class="menu-card-footer">
+              <span class="menu-price">$9</span>
+              <a href="#" class="btn btn-primary demo-trigger">Order</a>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card fade-up">
+          <div class="menu-card-body pt-32">
+            <span class="menu-card-tag">Starter</span>
+            <h3>Detroit-Style Bread Sticks</h3>
+            <p>Focaccia-style breadsticks from our deep dish dough base, topped with romano and served with whipped ricotta.</p>
+            <div class="menu-card-footer">
+              <span class="menu-price">$10</span>
+              <a href="#" class="btn btn-primary demo-trigger">Order</a>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card fade-up">
+          <div class="menu-card-body pt-32">
+            <span class="menu-card-tag">Salad</span>
+            <h3>Eastern Market Chop</h3>
+            <p>Seasonal greens, cherry tomatoes, cucumber, kalamata olives, red onion, and house vinaigrette from local Eastern Market herbs.</p>
+            <div class="menu-card-footer">
+              <span class="menu-price">$12</span>
+              <a href="#" class="btn btn-primary demo-trigger">Order</a>
             </div>
           </div>
         </article>
       </div>
     </div>
+  </section>
 
-    <!-- BUILD YOUR OWN -->
-    <div class="menu-section" id="tab-build" role="tabpanel">
-      <div class="menu-section__header">
-        <span class="menu-section__icon" aria-hidden="true">🔧</span>
-        <div>
-          <h2 style="font-size: 1.6rem; margin-bottom: 0.2rem;">Build Your Own Pan</h2>
-          <p style="color: var(--mid-gray); font-size: 0.9rem; opacity: 1;">Start with our base and add what you love. Personal from $14, Party from $26.</p>
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <h2>Can't Decide? Build Your Own.</h2>
+    <p>Choose your crust, sauce, cheese, and up to 8 toppings. Every combination is a classic in the making.</p>
+    <a href="#" class="btn btn-outline demo-trigger">Start Building &rarr;</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/pizzalogo.PNG" alt="Steel Pan Pizza Co." class="footer-logo-img" loading="lazy">
+          <div class="footer-logo-name">Steel Pan Pizza Co.</div>
+          <p>Detroit's original deep dish. Serving our city with pride since 2004.</p>
         </div>
-      </div>
-      <div class="menu-grid">
-        <div style="background:#fff; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem;">
-          <div class="menu-item__label">Step 1 — Sauce</div>
-          <div class="menu-item__name" style="font-family:var(--font-head); font-size:1.1rem; font-weight:700; margin-bottom:0.75rem;">Choose Your Base</div>
-          <ul style="display:flex; flex-direction:column; gap:0.5rem;">
-            <li style="font-size:0.9rem; padding:0.5rem 0; border-bottom:1px solid var(--border);">🍅 Classic House Red Sauce</li>
-            <li style="font-size:0.9rem; padding:0.5rem 0; border-bottom:1px solid var(--border);">🧄 Roasted Garlic Cream</li>
-            <li style="font-size:0.9rem; padding:0.5rem 0; border-bottom:1px solid var(--border);">🌶️ Ghost Pepper Red (+$1)</li>
-            <li style="font-size:0.9rem; padding:0.5rem 0;">🏕️ Smoky BBQ</li>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="story.html">Our Story</a></li>
+            <li><a href="catering.html">Catering</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-        <div style="background:#fff; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem;">
-          <div class="menu-item__label">Step 2 — Cheese</div>
-          <div class="menu-item__name" style="font-family:var(--font-head); font-size:1.1rem; font-weight:700; margin-bottom:0.75rem;">Choose Your Cheese</div>
-          <ul style="display:flex; flex-direction:column; gap:0.5rem;">
-            <li style="font-size:0.9rem; padding:0.5rem 0; border-bottom:1px solid var(--border);">🧀 Wisconsin Brick (Classic)</li>
-            <li style="font-size:0.9rem; padding:0.5rem 0; border-bottom:1px solid var(--border);">🧀 Fresh Mozzarella (+$1)</li>
-            <li style="font-size:0.9rem; padding:0.5rem 0; border-bottom:1px solid var(--border);">🧀 Fontina (+$1)</li>
-            <li style="font-size:0.9rem; padding:0.5rem 0;">🧀 Vegan Blend (+$2)</li>
-          </ul>
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <p>Mon&ndash;Thu: 11am &ndash; 9pm<br>Fri&ndash;Sat: 11am &ndash; 10pm<br>Sunday: 12pm &ndash; 8pm</p>
         </div>
-        <div style="background:#fff; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; grid-column: 1 / -1;">
-          <div class="menu-item__label">Step 3 — Toppings</div>
-          <div class="menu-item__name" style="font-family:var(--font-head); font-size:1.1rem; font-weight:700; margin-bottom:0.75rem;">Choose Up to 4 Toppings · Extra toppings $1.50 each</div>
-          <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap:0.5rem;">
-            <span style="font-size:0.85rem; padding:0.4rem 0.75rem; background:var(--warm-gray); border-radius:2rem; text-align:center;">Pepperoni</span>
-            <span style="font-size:0.85rem; padding:0.4rem 0.75rem; background:var(--warm-gray); border-radius:2rem; text-align:center;">Italian Sausage</span>
-            <span style="font-size:0.85rem; padding:0.4rem 0.75rem; background:var(--warm-gray); border-radius:2rem; text-align:center;">Smoked Brisket</span>
-            <span style="font-size:0.85rem; padding:0.4rem 0.75rem; background:var(--warm-gray); border-radius:2rem; text-align:center;">Chorizo</span>
-            <span style="font-size:0.85rem; padding:0.4rem 0.75rem; background:var(--warm-gray); border-radius:2rem; text-align:center;">Roasted Peppers</span>
-            <span style="font-size:0.85rem; padding:0.4rem 0.75rem; background:var(--warm-gray); border-radius:2rem; text-align:center;">Wild Mushrooms</span>
-            <span style="font-size:0.85rem; padding:0.4rem 0.75rem; background:var(--warm-gray); border-radius:2rem; text-align:center;">Caramelized Onion</span>
-            <span style="font-size:0.85rem; padding:0.4rem 0.75rem; background:var(--warm-gray); border-radius:2rem; text-align:center;">Jalapeños</span>
-            <span style="font-size:0.85rem; padding:0.4rem 0.75rem; background:var(--warm-gray); border-radius:2rem; text-align:center;">Black Olives</span>
-            <span style="font-size:0.85rem; padding:0.4rem 0.75rem; background:var(--warm-gray); border-radius:2rem; text-align:center;">Banana Peppers</span>
-            <span style="font-size:0.85rem; padding:0.4rem 0.75rem; background:var(--warm-gray); border-radius:2rem; text-align:center;">Ricotta Dollops</span>
-            <span style="font-size:0.85rem; padding:0.4rem 0.75rem; background:var(--warm-gray); border-radius:2rem; text-align:center;">Sun-Dried Tomato</span>
-          </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>1842 Gratiot Ave<br>Detroit, MI 48207<br><br>(313) 555-0182<br>hello@steelpanpizza.com</p>
         </div>
       </div>
-      <div class="build-your-own">
-        <h3>Ready to Build?</h3>
-        <p>Place your custom order online or walk in and tell us exactly what you want.</p>
-        <button class="btn btn--gold demo-trigger">Start My Order</button>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Steel Pan Pizza Co. All rights reserved. &mdash; Demo site only.</p>
+        <p>Built by <a href="https://dysondigital.com" target="_blank" rel="noopener noreferrer">Dyson Digital</a></p>
       </div>
     </div>
+  </footer>
 
-    <!-- STARTERS -->
-    <div class="menu-section" id="tab-starters" role="tabpanel">
-      <div class="menu-section__header">
-        <span class="menu-section__icon" aria-hidden="true">🥗</span>
-        <div>
-          <h2 style="font-size: 1.6rem; margin-bottom: 0.2rem;">Starters &amp; Salads</h2>
-          <p style="color: var(--mid-gray); font-size: 0.9rem; opacity: 1;">Start strong before the pan arrives.</p>
-        </div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:1rem;">
-        <div style="display:grid; grid-template-columns:1fr auto; align-items:center; background:#fff; border:1px solid var(--border); border-radius:8px; padding:1.25rem 1.5rem;">
-          <div>
-            <div class="menu-item__label">Starter</div>
-            <div class="menu-item__name" style="font-family:var(--font-head); font-size:1.1rem; font-weight:700; opacity:1;">Garlic Bread Sticks</div>
-            <p style="font-size:0.88rem; color:var(--mid-gray); opacity:1;">House-made focaccia strips, garlic butter, shaved parmesan, marinara dipping sauce.</p>
-          </div>
-          <div style="text-align:right; padding-left:1rem;">
-            <div class="menu-item__price">$8</div>
-            <button class="menu-item__add demo-trigger" style="margin-top:0.5rem;">Add</button>
-          </div>
-        </div>
-        <div style="display:grid; grid-template-columns:1fr auto; align-items:center; background:#fff; border:1px solid var(--border); border-radius:8px; padding:1.25rem 1.5rem;">
-          <div>
-            <div class="menu-item__label">Starter</div>
-            <div class="menu-item__name" style="font-family:var(--font-head); font-size:1.1rem; font-weight:700; opacity:1;">Detroit Wings</div>
-            <p style="font-size:0.88rem; color:var(--mid-gray); opacity:1;">8 crispy wings, choice of sauce: Buffalo, Honey Gold, or Smoky BBQ. Ranch or blue cheese.</p>
-          </div>
-          <div style="text-align:right; padding-left:1rem;">
-            <div class="menu-item__price">$14</div>
-            <button class="menu-item__add demo-trigger" style="margin-top:0.5rem;">Add</button>
-          </div>
-        </div>
-        <div style="display:grid; grid-template-columns:1fr auto; align-items:center; background:#fff; border:1px solid var(--border); border-radius:8px; padding:1.25rem 1.5rem;">
-          <div>
-            <div class="menu-item__label">Salad</div>
-            <div class="menu-item__name" style="font-family:var(--font-head); font-size:1.1rem; font-weight:700; opacity:1;">Corktown Caesar</div>
-            <p style="font-size:0.88rem; color:var(--mid-gray); opacity:1;">Romaine hearts, house Caesar dressing, house-made focaccia croutons, shaved parmesan.</p>
-          </div>
-          <div style="text-align:right; padding-left:1rem;">
-            <div class="menu-item__price">$11</div>
-            <button class="menu-item__add demo-trigger" style="margin-top:0.5rem;">Add</button>
-          </div>
-        </div>
-        <div style="display:grid; grid-template-columns:1fr auto; align-items:center; background:#fff; border:1px solid var(--border); border-radius:8px; padding:1.25rem 1.5rem;">
-          <div>
-            <div class="menu-item__label">Salad</div>
-            <div class="menu-item__name" style="font-family:var(--font-head); font-size:1.1rem; font-weight:700; opacity:1;">Woodward Chop</div>
-            <p style="font-size:0.88rem; color:var(--mid-gray); opacity:1;">Chopped iceberg, tomato, red onion, pepperoni, banana peppers, Italian vinaigrette.</p>
-          </div>
-          <div style="text-align:right; padding-left:1rem;">
-            <div class="menu-item__price">$12</div>
-            <button class="menu-item__add demo-trigger" style="margin-top:0.5rem;">Add</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SIDES -->
-    <div class="menu-section" id="tab-sides" role="tabpanel">
-      <div class="menu-section__header">
-        <span class="menu-section__icon" aria-hidden="true">🍞</span>
-        <div>
-          <h2 style="font-size: 1.6rem; margin-bottom: 0.2rem;">Sides</h2>
-          <p style="color: var(--mid-gray); font-size: 0.9rem; opacity: 1;">Perfect alongside any pie.</p>
-        </div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:1rem;">
-        <div style="display:grid; grid-template-columns:1fr auto; align-items:center; background:#fff; border:1px solid var(--border); border-radius:8px; padding:1.25rem 1.5rem;">
-          <div>
-            <div class="menu-item__name" style="font-family:var(--font-head); font-size:1.1rem; font-weight:700; opacity:1;">Dipping Sauces</div>
-            <p style="font-size:0.88rem; color:var(--mid-gray); opacity:1;">Choose any 2: Marinara, Ranch, Blue Cheese, Hot Honey, Garlic Butter, BBQ.</p>
-          </div>
-          <div class="menu-item__price">$3</div>
-        </div>
-        <div style="display:grid; grid-template-columns:1fr auto; align-items:center; background:#fff; border:1px solid var(--border); border-radius:8px; padding:1.25rem 1.5rem;">
-          <div>
-            <div class="menu-item__name" style="font-family:var(--font-head); font-size:1.1rem; font-weight:700; opacity:1;">Loaded Fries</div>
-            <p style="font-size:0.88rem; color:var(--mid-gray); opacity:1;">Thick-cut fries, brick cheese sauce, jalapeños, crispy bacon bits, scallions.</p>
-          </div>
-          <div class="menu-item__price">$9</div>
-        </div>
-        <div style="display:grid; grid-template-columns:1fr auto; align-items:center; background:#fff; border:1px solid var(--border); border-radius:8px; padding:1.25rem 1.5rem;">
-          <div>
-            <div class="menu-item__name" style="font-family:var(--font-head); font-size:1.1rem; font-weight:700; opacity:1;">Focaccia Sliders (2)</div>
-            <p style="font-size:0.88rem; color:var(--mid-gray); opacity:1;">House focaccia bun, mozzarella, basil, marinara, balsamic glaze.</p>
-          </div>
-          <div class="menu-item__price">$8</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DRINKS -->
-    <div class="menu-section" id="tab-drinks" role="tabpanel">
-      <div class="menu-section__header">
-        <span class="menu-section__icon" aria-hidden="true">🥤</span>
-        <div>
-          <h2 style="font-size: 1.6rem; margin-bottom: 0.2rem;">Drinks</h2>
-          <p style="color: var(--mid-gray); font-size: 0.9rem; opacity: 1;">Cold, craft, and refreshing.</p>
-        </div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:1rem;">
-        <div style="display:grid; grid-template-columns:1fr auto; background:#fff; border:1px solid var(--border); border-radius:8px; padding:1.25rem 1.5rem; align-items:center;">
-          <div>
-            <div class="menu-item__label">Craft Beer</div>
-            <div class="menu-item__name" style="font-family:var(--font-head); font-size:1.1rem; font-weight:700; opacity:1;">Detroit Draft Selection</div>
-            <p style="font-size:0.88rem; color:var(--mid-gray); opacity:1;">Rotating taps from Founders, Bell's, Short's, and local Detroit breweries. Ask your server.</p>
-          </div>
-          <div class="menu-item__price">$7–9</div>
-        </div>
-        <div style="display:grid; grid-template-columns:1fr auto; background:#fff; border:1px solid var(--border); border-radius:8px; padding:1.25rem 1.5rem; align-items:center;">
-          <div>
-            <div class="menu-item__name" style="font-family:var(--font-head); font-size:1.1rem; font-weight:700; opacity:1;">Michigan Lemonade</div>
-            <p style="font-size:0.88rem; color:var(--mid-gray); opacity:1;">Fresh-squeezed, lightly sweetened, available regular or strawberry basil.</p>
-          </div>
-          <div class="menu-item__price">$4</div>
-        </div>
-        <div style="display:grid; grid-template-columns:1fr auto; background:#fff; border:1px solid var(--border); border-radius:8px; padding:1.25rem 1.5rem; align-items:center;">
-          <div>
-            <div class="menu-item__name" style="font-family:var(--font-head); font-size:1.1rem; font-weight:700; opacity:1;">Soft Drinks</div>
-            <p style="font-size:0.88rem; color:var(--mid-gray); opacity:1;">Coke, Diet Coke, Sprite, Fanta, Root Beer. Free refills.</p>
-          </div>
-          <div class="menu-item__price">$3</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="allergen-note" role="note">
-      <strong>Allergen Notice:</strong> Our kitchen handles wheat, dairy, eggs, nuts, soy, and shellfish. Cross-contamination is possible. Gluten-free crust available but prepared in a shared environment. Please inform your server of any allergies. Prices subject to change. Menu items may vary by location.
+  <!-- DEMO MODAL -->
+  <div class="demo-modal-bg" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle">
+    <div class="demo-modal">
+      <span class="demo-modal-icon">&#128203;</span>
+      <h2 id="demoModalTitle">Demo Site Notice</h2>
+      <p>This is a <strong>demo site</strong> built for portfolio display purposes only. No orders can be placed, and no transactions will be processed.</p>
+      <button class="demo-modal-close-btn" id="demoModalClose">Got It</button>
+      <p class="demo-modal-built">Built by <strong>Dyson Digital</strong></p>
     </div>
   </div>
-</section>
 
-<!-- ══ FOOTER ══ -->
-<footer class="footer" role="contentinfo">
-  <div class="container">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <img src="images/pizzalogo.PNG" alt="Steel Pan Pizza Co." loading="lazy">
-        <p>Detroit's home of authentic square deep dish since 2011.</p>
-        <div class="footer__social" aria-label="Social media links">
-          <a href="#" aria-label="Facebook">f</a>
-          <a href="#" aria-label="Instagram">ig</a>
-          <a href="#" aria-label="Twitter/X">x</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer__col-title">Navigate</div>
-        <ul class="footer__links" role="list">
-          <li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li>
-          <li><a href="gallery.html">Gallery</a></li><li><a href="story.html">Our Story</a></li>
-          <li><a href="catering.html">Catering</a></li><li><a href="locations.html">Locations</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__col-title">Hours</div>
-        <address class="footer__address" style="font-style:normal;">
-          <strong>Mon–Thu</strong> 11am – 10pm<br>
-          <strong>Fri–Sat</strong> 11am – 11pm<br>
-          <strong>Sunday</strong> 12pm – 9pm
-        </address>
-      </div>
-      <div>
-        <div class="footer__col-title">Detroit HQ</div>
-        <address class="footer__address" style="font-style:normal;">
-          <strong>Midtown Location</strong>
-          4521 Woodward Ave, Detroit, MI 48201<br><br>
-          <a href="tel:+13135550192" style="color:var(--gold);">(313) 555-0192</a>
-        </address>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <span>© 2024 Steel Pan Pizza Co. All rights reserved.</span>
-      <span>Built by <a href="https://www.dysondigital.co" target="_blank" rel="noopener">Dyson Digital</a></span>
-    </div>
-  </div>
-</footer>
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
 
-<!-- ══ DEMO MODAL ══ -->
-<div class="demo-modal-overlay" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle">
-  <div class="demo-modal">
-    <div class="demo-modal__icon" aria-hidden="true">🍕</div>
-    <h2 class="demo-modal__title" id="demoModalTitle">Demo Site Only</h2>
-    <p class="demo-modal__body">This is a demo site for display purposes only. No orders can be placed.</p>
-    <p class="demo-modal__credit">Built by Dyson Digital</p>
-    <button class="demo-modal__close" id="demoClose">Got It</button>
-  </div>
-</div>
+    function openMenu() {
+      mobileMenu.classList.add('is-open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
 
-<script>
-  // Demo Modal
-  const demoModal = document.getElementById('demoModal');
-  const demoClose = document.getElementById('demoClose');
-  document.querySelectorAll('.demo-trigger').forEach(btn => {
-    btn.addEventListener('click', e => { e.preventDefault(); demoModal.classList.add('is-active'); });
-  });
-  demoClose.addEventListener('click', () => demoModal.classList.remove('is-active'));
-  demoModal.addEventListener('click', e => { if (e.target === demoModal) demoModal.classList.remove('is-active'); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') demoModal.classList.remove('is-active'); });
+    function closeMenu() {
+      mobileMenu.classList.remove('is-open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
 
-  // Menu Tabs
-  const tabs = document.querySelectorAll('.menu-tab');
-  const sections = document.querySelectorAll('.menu-section');
-  tabs.forEach((tab, i) => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
-      sections.forEach(s => s.classList.remove('active'));
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected', 'true');
-      const targetId = 'tab-' + tab.dataset.tab;
-      document.getElementById(targetId).classList.add('active');
+    hamburgerBtn.addEventListener('click', openMenu);
+    mobileMenuClose.addEventListener('click', closeMenu);
+    mobileMenu.addEventListener('click', (e) => { if (e.target.closest('a')) closeMenu(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+    const demoModal = document.getElementById('demoModal');
+    const demoModalClose = document.getElementById('demoModalClose');
+
+    document.querySelectorAll('.demo-trigger').forEach(btn => {
+      btn.addEventListener('click', (e) => { e.preventDefault(); demoModal.classList.add('is-open'); });
     });
-  });
+    demoModalClose.addEventListener('click', () => demoModal.classList.remove('is-open'));
+    demoModal.addEventListener('click', (e) => { if (e.target === demoModal) demoModal.classList.remove('is-open'); });
 
-  // Scroll animations
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => observer.observe(el));
 
-<!-- ══ MOBILE NAV ══ -->
-<script>
-  const hamburgerBtn = document.getElementById('hamburgerBtn');
-  const mobileMenu   = document.getElementById('mobileMenu');
-  const menuClose    = document.getElementById('menuClose');
-  function openMenu() { mobileMenu.classList.add('is-open'); requestAnimationFrame(() => mobileMenu.setAttribute('aria-hidden','false')); hamburgerBtn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
-  function closeMenu() { mobileMenu.setAttribute('aria-hidden','true'); hamburgerBtn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; setTimeout(()=>mobileMenu.classList.remove('is-open'),300); }
-  hamburgerBtn.addEventListener('click', openMenu);
-  menuClose.addEventListener('click', closeMenu);
-  mobileMenu.addEventListener('click', (e) => { if (e.target.closest('a')) closeMenu(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-</script>
+    // Menu category tabs (visual only)
+    document.querySelectorAll('.menu-cat-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.menu-cat-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+      });
+    });
+  </script>
 </body>
 </html>

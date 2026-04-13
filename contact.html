@@ -4,560 +4,296 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Contact — Steel Pan Pizza Co. | Get In Touch</title>
-  <meta name="description" content="Contact Steel Pan Pizza Co. with questions, feedback, or catering inquiries. Find our phone, email, and social media.">
+  <title>Contact — Steel Pan Pizza Co.</title>
+  <meta name="description" content="Get in touch with Steel Pan Pizza Co. Reach us by phone, email, or the contact form for general inquiries.">
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 5rem;
-      align-items: start;
-      padding: 5rem 0;
-    }
-
-    .contact-info__title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      opacity: 1;
-    }
-    .contact-info__intro {
-      color: var(--mid-gray);
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
-      opacity: 1;
-    }
-
-    .contact-method {
-      display: flex;
-      align-items: flex-start;
-      gap: 1.1rem;
-      margin-bottom: 1.75rem;
-      padding-bottom: 1.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .contact-method:last-of-type { border-bottom: none; }
-    .contact-method__icon {
-      width: 48px;
-      height: 48px;
-      min-width: 48px;
-      background: rgba(192,57,43,0.08);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-    }
-    .contact-method__label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 0.2rem;
-      opacity: 1;
-    }
-    .contact-method__value {
-      font-family: var(--font-head);
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--charcoal);
-      opacity: 1;
-    }
-    .contact-method__value a { color: var(--charcoal); transition: color 0.18s; }
-    .contact-method__value a:hover { color: var(--red); }
-    .contact-method__note {
-      font-size: 0.82rem;
-      color: var(--mid-gray);
-      margin-top: 0.15rem;
-      opacity: 1;
-    }
-
-    .social-strip {
-      margin-top: 2rem;
-    }
-    .social-strip__title {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--mid-gray);
-      margin-bottom: 0.75rem;
-      opacity: 1;
-    }
-    .social-links {
-      display: flex;
-      gap: 0.75rem;
-    }
-    .social-link {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.55rem 1rem;
-      border: 1.5px solid var(--border);
-      border-radius: 2rem;
-      font-size: 0.83rem;
-      font-weight: 600;
-      color: var(--charcoal);
-      transition: all 0.2s;
-    }
-    .social-link:hover {
-      background: var(--red);
-      border-color: var(--red);
-      color: #fff;
-    }
-
-    .contact-form-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 2.5rem;
-      box-shadow: var(--shadow-md);
-    }
-    .contact-form-card__title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-      opacity: 1;
-    }
-    .contact-form-card__sub {
-      font-size: 0.9rem;
-      color: var(--mid-gray);
-      margin-bottom: 2rem;
-      opacity: 1;
-    }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-    .subject-chips {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.25rem;
-    }
-    .subject-chip {
-      padding: 0.4rem 0.9rem;
-      border: 1.5px solid var(--border);
-      border-radius: 2rem;
-      font-size: 0.8rem;
-      font-weight: 500;
-      cursor: pointer;
-      background: transparent;
-      color: var(--charcoal);
-      font-family: var(--font-body);
-      transition: all 0.18s;
-    }
-    .subject-chip:hover,
-    .subject-chip.active {
-      background: var(--red);
-      border-color: var(--red);
-      color: #fff;
-    }
-
-    .faq-section {
-      padding: 5rem 0;
-      background: var(--warm-gray);
-    }
-    .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-      margin-top: 3rem;
-    }
-    .faq-item {
-      background: #fff;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      overflow: hidden;
-    }
-    .faq-question {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.25rem 1.5rem;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.95rem;
-      gap: 1rem;
-      transition: background 0.18s;
-      user-select: none;
-      border: none;
-      background: transparent;
-      width: 100%;
-      text-align: left;
-      font-family: var(--font-body);
-      color: var(--charcoal);
-      opacity: 1;
-    }
-    .faq-question:hover { background: var(--warm-gray); }
-    .faq-chevron {
-      font-size: 0.75rem;
-      transition: transform 0.25s;
-      flex-shrink: 0;
-      color: var(--red);
-    }
-    .faq-item.open .faq-chevron { transform: rotate(180deg); }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-      font-size: 0.9rem;
-      color: var(--mid-gray);
-      line-height: 1.7;
-      padding: 0 1.5rem;
-      opacity: 1;
-    }
-    .faq-item.open .faq-answer {
-      max-height: 200px;
-      padding: 0 1.5rem 1.25rem;
-    }
-
-    @media (max-width: 900px) {
-      .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
-      .faq-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
 <body>
 
-<!-- ══ NAVBAR ══ -->
-<nav class="navbar" role="navigation" aria-label="Main navigation">
-  <div class="navbar__inner">
-    <a href="index.html" class="navbar__logo" aria-label="Steel Pan Pizza Co. Home">
-      <img src="images/pizzalogo.PNG" alt="Steel Pan Pizza Co. Logo">
-      <div class="navbar__logo-text">Steel Pan Pizza Co.<span>Detroit-Style Deep Dish</span></div>
-    </a>
-    <ul class="navbar__links" role="list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="menu.html">Menu</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="story.html">Our Story</a></li>
-      <li><a href="catering.html">Catering</a></li>
-      <li><a href="locations.html">Locations</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
-    <div class="navbar__cta"><a href="menu.html" class="btn btn--primary demo-trigger">Order Now</a></div>
-    <button class="navbar__hamburger" aria-label="Open mobile menu" aria-expanded="false" id="hamburgerBtn">
-      <span></span><span></span><span></span>
-    </button>
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Steel Pan Pizza Co. Home">
+        <img src="images/pizzalogo.PNG" alt="Steel Pan Pizza Co. Logo" class="nav-logo-img">
+        <div class="nav-logo-text">
+          Steel Pan Pizza
+          <span>Detroit Style Deep Dish</span>
+        </div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="story.html">Our Story</a></li>
+        <li><a href="catering.html">Catering</a></li>
+        <li><a href="locations.html">Locations</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="#" class="nav-cta demo-trigger">Order Now</a></li>
+      </ul>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation" aria-hidden="true">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#x2715;</button>
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="story.html">Our Story</a>
+    <a href="catering.html">Catering</a>
+    <a href="locations.html">Locations</a>
+    <a href="contact.html">Contact</a>
+    <a href="#" class="nav-cta-mobile demo-trigger">Order Now</a>
   </div>
-</nav>
 
-<!-- ══ MOBILE MENU ══ -->
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-  <button class="mobile-menu__close" id="menuClose" aria-label="Close menu">✕</button>
-  <a href="index.html">Home</a>
-  <a href="menu.html">Menu</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="story.html">Our Story</a>
-  <a href="catering.html">Catering</a>
-  <a href="locations.html">Locations</a>
-  <a href="contact.html">Contact</a>
-  <div class="mobile-menu__cta"><a href="menu.html" class="btn btn--primary demo-trigger">Order Now</a></div>
-</div>
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="container page-header-inner">
+      <span class="section-label">Get in Touch</span>
+      <h1>We'd Love to Hear<br>from You</h1>
+      <p>Questions, feedback, media requests, or just want to tell us how much you loved the Pepperoni Motown? We're all ears.</p>
+    </div>
+  </header>
 
-<!-- ══ PAGE HERO ══ -->
-<section class="page-hero" aria-labelledby="pageHeroTitle">
-  <div class="container">
-    <span class="page-hero__eyebrow">Steel Pan Pizza Co.</span>
-    <h1 class="page-hero__title" id="pageHeroTitle">Get In Touch</h1>
-    <p class="page-hero__sub">We love hearing from Detroit. Questions, feedback, or just want to say hi — we're here.</p>
-  </div>
-</section>
+  <!-- CONTACT SECTION -->
+  <section class="section section--cream" aria-labelledby="contact-section-title">
+    <div class="container">
+      <div class="contact-grid">
 
-<!-- ══ CONTACT LAYOUT ══ -->
-<section aria-labelledby="contactTitle">
-  <div class="container">
-    <div class="contact-layout">
-      <!-- Info Column -->
-      <div>
-        <span class="section-eyebrow">Contact Info</span>
-        <h2 class="contact-info__title" id="contactTitle">Let's Talk Pizza.</h2>
-        <p class="contact-info__intro">Whether you're looking to place a bulk order, ask about allergens, share feedback, or just connect — our team is responsive, friendly, and always happy to chat.</p>
+        <!-- LEFT: INFO -->
+        <aside class="contact-info" aria-label="Contact information">
+          <h2 id="contact-section-title">Contact Details</h2>
+          <p>Our team typically responds to all inquiries within one business day. For urgent matters or same-day catering questions, please call us directly.</p>
 
-        <div class="contact-method">
-          <div class="contact-method__icon" aria-hidden="true">📞</div>
-          <div>
-            <div class="contact-method__label">Main Line</div>
-            <div class="contact-method__value"><a href="tel:+13135550192">(313) 555-0192</a></div>
-            <div class="contact-method__note">Mon–Sat 10am–10pm, Sun 11am–8pm</div>
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon" aria-hidden="true">&#128205;</div>
+            <div class="contact-detail-text">
+              <strong>Flagship Address</strong>
+              <span>1842 Gratiot Ave, Detroit, MI 48207</span>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon" aria-hidden="true">&#128222;</div>
+            <div class="contact-detail-text">
+              <strong>Phone</strong>
+              <span>(313) 555-0182</span>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon" aria-hidden="true">&#128140;</div>
+            <div class="contact-detail-text">
+              <strong>Email</strong>
+              <span>hello@steelpanpizza.com</span>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon" aria-hidden="true">&#127859;</div>
+            <div class="contact-detail-text">
+              <strong>Catering Inquiries</strong>
+              <span>events@steelpanpizza.com</span>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon" aria-hidden="true">&#128247;</div>
+            <div class="contact-detail-text">
+              <strong>Press &amp; Media</strong>
+              <span>media@steelpanpizza.com</span>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon" aria-hidden="true">&#128336;</div>
+            <div class="contact-detail-text">
+              <strong>Response Time</strong>
+              <span>Within 1 business day, Mon&ndash;Fri</span>
+            </div>
+          </div>
+        </aside>
+
+        <!-- RIGHT: FORM -->
+        <div class="contact-form" role="region" aria-label="Contact form">
+          <h3>Send Us a Message</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="contact-first">First Name</label>
+              <input type="text" id="contact-first" name="first-name" placeholder="First name" autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label for="contact-last">Last Name</label>
+              <input type="text" id="contact-last" name="last-name" placeholder="Last name" autocomplete="family-name">
+            </div>
+            <div class="form-group full">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" name="email" placeholder="you@email.com" autocomplete="email">
+            </div>
+            <div class="form-group full">
+              <label for="contact-subject">Subject</label>
+              <select id="contact-subject" name="subject">
+                <option value="" disabled selected>Select a topic</option>
+                <option>General Inquiry</option>
+                <option>Catering &amp; Events</option>
+                <option>Feedback / Compliment</option>
+                <option>Press / Media</option>
+                <option>Careers</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" placeholder="Tell us what's on your mind..."></textarea>
+            </div>
+            <div class="form-group full">
+              <button type="button" class="btn btn-primary demo-trigger">Send Message</button>
+            </div>
           </div>
         </div>
 
-        <div class="contact-method">
-          <div class="contact-method__icon" aria-hidden="true">✉️</div>
-          <div>
-            <div class="contact-method__label">General Inquiries</div>
-            <div class="contact-method__value"><a href="mailto:hello@steelpanpizza.com">hello@steelpanpizza.com</a></div>
-            <div class="contact-method__note">We respond within 24 hours</div>
-          </div>
-        </div>
-
-        <div class="contact-method">
-          <div class="contact-method__icon" aria-hidden="true">🍽️</div>
-          <div>
-            <div class="contact-method__label">Catering</div>
-            <div class="contact-method__value"><a href="mailto:catering@steelpanpizza.com">catering@steelpanpizza.com</a></div>
-            <div class="contact-method__note">Or call (313) 555-0193 — catering line</div>
-          </div>
-        </div>
-
-        <div class="contact-method">
-          <div class="contact-method__icon" aria-hidden="true">👔</div>
-          <div>
-            <div class="contact-method__label">Press &amp; Partnerships</div>
-            <div class="contact-method__value"><a href="mailto:press@steelpanpizza.com">press@steelpanpizza.com</a></div>
-            <div class="contact-method__note">Media kits and partnership inquiries</div>
-          </div>
-        </div>
-
-        <div class="social-strip">
-          <div class="social-strip__title">Follow the Pan</div>
-          <div class="social-links">
-            <a href="#" class="social-link" aria-label="Facebook">
-              <span aria-hidden="true">f</span> Facebook
-            </a>
-            <a href="#" class="social-link" aria-label="Instagram">
-              <span aria-hidden="true">ig</span> Instagram
-            </a>
-            <a href="#" class="social-link" aria-label="Twitter/X">
-              <span aria-hidden="true">x</span> Twitter
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Form Column -->
-      <div class="contact-form-card fade-up" role="form" aria-labelledby="formHeading">
-        <h3 class="contact-form-card__title" id="formHeading">Send Us a Message</h3>
-        <p class="contact-form-card__sub">We read every message. Usually respond same day.</p>
-
-        <!-- Subject chips -->
-        <div class="subject-chips" role="group" aria-label="Select a subject">
-          <button class="subject-chip active" data-subject="General">General</button>
-          <button class="subject-chip" data-subject="Order Help">Order Help</button>
-          <button class="subject-chip" data-subject="Catering">Catering</button>
-          <button class="subject-chip" data-subject="Feedback">Feedback</button>
-          <button class="subject-chip" data-subject="Press">Press</button>
-          <button class="subject-chip" data-subject="Other">Other</button>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="contactName">Your Name *</label>
-            <input type="text" id="contactName" name="contactName" placeholder="First &amp; Last" required>
-          </div>
-          <div class="form-group">
-            <label for="contactEmail">Email *</label>
-            <input type="email" id="contactEmail" name="contactEmail" placeholder="you@email.com" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="contactPhone">Phone (optional)</label>
-          <input type="tel" id="contactPhone" name="contactPhone" placeholder="(313) 000-0000">
-        </div>
-        <div class="form-group">
-          <label for="subjectField">Subject *</label>
-          <input type="text" id="subjectField" name="subject" placeholder="What's this about?" value="General" required>
-        </div>
-        <div class="form-group">
-          <label for="preferredLocation">Preferred Location</label>
-          <select id="preferredLocation" name="preferredLocation">
-            <option value="">Any location</option>
-            <option>Midtown (Woodward Ave)</option>
-            <option>Corktown (Michigan Ave)</option>
-            <option>Ferndale (Nine Mile Rd)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="contactMessage">Message *</label>
-          <textarea id="contactMessage" name="message" rows="5" placeholder="Tell us what's on your mind..." required></textarea>
-        </div>
-        <button type="button" class="btn btn--primary demo-trigger" style="width: 100%; justify-content: center; padding: 1rem; font-size: 1rem;">
-          Send Message
-        </button>
-        <p style="font-size: 0.78rem; color: var(--mid-gray); text-align: center; margin-top: 0.75rem; opacity: 1;">
-          We don't share your info. Ever. 🔒
-        </p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══ FAQ ══ -->
-<section class="faq-section" aria-labelledby="faqTitle">
-  <div class="container">
-    <div class="text-center">
-      <span class="section-eyebrow">Quick Answers</span>
-      <h2 id="faqTitle" class="section-title">Frequently Asked.</h2>
+  <!-- SPLIT: SOCIAL + COMMUNITY -->
+  <section class="split split--reverse" aria-label="Social media and community">
+    <img src="images/womaneatinpizza.jpg" alt="A happy guest enjoying Steel Pan Pizza" class="split-img" loading="lazy">
+    <div class="split-body section--dark">
+      <span class="section-label">Follow Along</span>
+      <h2 class="section-title">We're Active on Social</h2>
+      <p class="section-subtitle">Tag us in your Steel Pan moments. We repost our favorites weekly and give away a free pie to our favorite photo each month. Use #SteelPanPizza to enter.</p>
+      <a href="gallery.html" class="btn btn-outline">View Our Gallery</a>
     </div>
-    <div class="faq-grid" id="faqGrid">
+  </section>
 
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Do you offer gluten-free options?
-          <span class="faq-chevron" aria-hidden="true">▼</span>
-        </button>
-        <div class="faq-answer">Yes — gluten-free crust is available for an additional $3. However, our kitchen handles gluten-containing ingredients and cross-contamination is possible. We do not recommend our GF option for those with celiac disease.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          How far in advance should I call for catering?
-          <span class="faq-chevron" aria-hidden="true">▼</span>
-        </button>
-        <div class="faq-answer">For smaller events (under 30 people), 72 hours is usually enough. For larger events, please give us at least one week — and for weddings or corporate events over 100 guests, two weeks is ideal.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          What are your parking options?
-          <span class="faq-chevron" aria-hidden="true">▼</span>
-        </button>
-        <div class="faq-answer">Midtown has street parking plus a validated rear lot. Corktown has free street parking and an adjacent city lot. Ferndale has a dedicated 40-space free lot attached to the building.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Do you take walk-ins or reservations?
-          <span class="faq-chevron" aria-hidden="true">▼</span>
-        </button>
-        <div class="faq-answer">We take walk-ins at all locations. Reservations are available for parties of 6 or more — call your preferred location directly to book. We always hold space for walk-ins, even on busy nights.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          How long does a pan take to bake?
-          <span class="faq-chevron" aria-hidden="true">▼</span>
-        </button>
-        <div class="faq-answer">A personal pan takes about 20–25 minutes. Party-size pans are 30–40 minutes. We recommend ordering ahead online — your pan will be ready when you arrive. Dine-in times vary based on how busy we are.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Are you hiring?
-          <span class="faq-chevron" aria-hidden="true">▼</span>
-        </button>
-        <div class="faq-answer">We're always looking for passionate, hardworking Detroiters to join the team. Send your resume and a quick note to hello@steelpanpizza.com with "Join the Crew" in the subject line. We hire for attitude and train for skill.</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══ FOOTER ══ -->
-<footer class="footer" role="contentinfo">
-  <div class="container">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <img src="images/pizzalogo.PNG" alt="Steel Pan Pizza Co." loading="lazy">
-        <p>Detroit's home of authentic square deep dish since 2011.</p>
-        <div class="footer__social" aria-label="Social media links">
-          <a href="#" aria-label="Facebook">f</a>
-          <a href="#" aria-label="Instagram">ig</a>
-          <a href="#" aria-label="Twitter/X">x</a>
+  <!-- FAQ -->
+  <section class="section section--cream" aria-labelledby="faq-title">
+    <div class="container">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title" id="faq-title">Common Questions</h2>
+      <div class="pillars-grid mt-48">
+        <div class="pillar-card fade-up">
+          <span class="pillar-icon">&#128336;</span>
+          <h3>How long does a deep dish take?</h3>
+          <p>Deep dish pies are baked to order and typically take 25&ndash;35 minutes from the time you order. It's worth every second.</p>
+        </div>
+        <div class="pillar-card fade-up">
+          <span class="pillar-icon">&#127869;</span>
+          <h3>Do you offer gluten-free crust?</h3>
+          <p>Yes, at all three locations for an additional $4. Prepared in a designated area to reduce cross-contact.</p>
+        </div>
+        <div class="pillar-card fade-up">
+          <span class="pillar-icon">&#128666;</span>
+          <h3>What's your delivery radius?</h3>
+          <p>We deliver within 5 miles of each location. Orders outside this range can arrange carry-out or catering delivery.</p>
+        </div>
+        <div class="pillar-card fade-up">
+          <span class="pillar-icon">&#127743;</span>
+          <h3>Do you take reservations?</h3>
+          <p>We're walk-in only for dine-in — no reservations needed. Large parties of 10+ should call ahead to ensure seating availability.</p>
         </div>
       </div>
-      <div>
-        <div class="footer__col-title">Navigate</div>
-        <ul class="footer__links" role="list">
-          <li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li>
-          <li><a href="gallery.html">Gallery</a></li><li><a href="story.html">Our Story</a></li>
-          <li><a href="catering.html">Catering</a></li><li><a href="locations.html">Locations</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <h2>Still Hungry for Answers?</h2>
+    <p>Call us directly at (313) 555-0182 — we're happy to help Monday through Friday, 10am to 6pm.</p>
+    <a href="#" class="btn btn-outline demo-trigger">Order Now &rarr;</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/pizzalogo.PNG" alt="Steel Pan Pizza Co." class="footer-logo-img" loading="lazy">
+          <div class="footer-logo-name">Steel Pan Pizza Co.</div>
+          <p>Detroit's original deep dish. Serving our city with pride since 2004.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="story.html">Our Story</a></li>
+            <li><a href="catering.html">Catering</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <p>Mon&ndash;Thu: 11am &ndash; 9pm<br>Fri&ndash;Sat: 11am &ndash; 10pm<br>Sunday: 12pm &ndash; 8pm</p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>1842 Gratiot Ave<br>Detroit, MI 48207<br><br>(313) 555-0182<br>hello@steelpanpizza.com</p>
+        </div>
       </div>
-      <div>
-        <div class="footer__col-title">Hours</div>
-        <address class="footer__address" style="font-style:normal;">
-          <strong>Mon–Thu</strong> 11am – 10pm<br>
-          <strong>Fri–Sat</strong> 11am – 11pm<br>
-          <strong>Sunday</strong> 12pm – 9pm
-        </address>
-      </div>
-      <div>
-        <div class="footer__col-title">Detroit HQ</div>
-        <address class="footer__address" style="font-style:normal;">
-          <strong>Midtown Location</strong>
-          4521 Woodward Ave, Detroit, MI 48201<br><br>
-          <a href="tel:+13135550192" style="color:var(--gold);">(313) 555-0192</a>
-        </address>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Steel Pan Pizza Co. All rights reserved. &mdash; Demo site only.</p>
+        <p>Built by <a href="https://dysondigital.com" target="_blank" rel="noopener noreferrer">Dyson Digital</a></p>
       </div>
     </div>
-    <div class="footer__bottom">
-      <span>© 2024 Steel Pan Pizza Co. All rights reserved.</span>
-      <span>Built by <a href="https://www.dysondigital.co" target="_blank" rel="noopener">Dyson Digital</a></span>
+  </footer>
+
+  <!-- DEMO MODAL -->
+  <div class="demo-modal-bg" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle">
+    <div class="demo-modal">
+      <span class="demo-modal-icon">&#128203;</span>
+      <h2 id="demoModalTitle">Demo Site Notice</h2>
+      <p>This is a <strong>demo site</strong> built for portfolio display purposes only. No orders can be placed, and no transactions will be processed.</p>
+      <button class="demo-modal-close-btn" id="demoModalClose">Got It</button>
+      <p class="demo-modal-built">Built by <strong>Dyson Digital</strong></p>
     </div>
   </div>
-</footer>
 
-<!-- ══ DEMO MODAL ══ -->
-<div class="demo-modal-overlay" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle">
-  <div class="demo-modal">
-    <div class="demo-modal__icon" aria-hidden="true">🍕</div>
-    <h2 class="demo-modal__title" id="demoModalTitle">Demo Site Only</h2>
-    <p class="demo-modal__body">This is a demo site for display purposes only. No orders can be placed.</p>
-    <p class="demo-modal__credit">Built by Dyson Digital</p>
-    <button class="demo-modal__close" id="demoClose">Got It</button>
-  </div>
-</div>
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
 
-<script>
-  // Demo Modal
-  const demoModal = document.getElementById('demoModal');
-  document.querySelectorAll('.demo-trigger').forEach(btn => {
-    btn.addEventListener('click', e => { e.preventDefault(); demoModal.classList.add('is-active'); });
-  });
-  document.getElementById('demoClose').addEventListener('click', () => demoModal.classList.remove('is-active'));
-  demoModal.addEventListener('click', e => { if (e.target === demoModal) demoModal.classList.remove('is-active'); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') demoModal.classList.remove('is-active'); });
+    function openMenu() {
+      mobileMenu.classList.add('is-open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
 
-  // Subject Chips
-  const chips = document.querySelectorAll('.subject-chip');
-  const subjectField = document.getElementById('subjectField');
-  chips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      chips.forEach(c => { c.classList.remove('active'); c.setAttribute('aria-pressed', 'false'); });
-      chip.classList.add('active');
-      chip.setAttribute('aria-pressed', 'true');
-      subjectField.value = chip.dataset.subject;
+    function closeMenu() {
+      mobileMenu.classList.remove('is-open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    hamburgerBtn.addEventListener('click', openMenu);
+    mobileMenuClose.addEventListener('click', closeMenu);
+    mobileMenu.addEventListener('click', (e) => { if (e.target.closest('a')) closeMenu(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+    const demoModal = document.getElementById('demoModal');
+    const demoModalClose = document.getElementById('demoModalClose');
+    document.querySelectorAll('.demo-trigger').forEach(btn => {
+      btn.addEventListener('click', (e) => { e.preventDefault(); demoModal.classList.add('is-open'); });
     });
-  });
+    demoModalClose.addEventListener('click', () => demoModal.classList.remove('is-open'));
+    demoModal.addEventListener('click', (e) => { if (e.target === demoModal) demoModal.classList.remove('is-open'); });
 
-  // FAQ Accordion
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
-    const btn = item.querySelector('.faq-question');
-    btn.addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
-      faqItems.forEach(i => { i.classList.remove('open'); i.querySelector('.faq-question').setAttribute('aria-expanded','false'); });
-      if (!isOpen) {
-        item.classList.add('open');
-        btn.setAttribute('aria-expanded','true');
-      }
-    });
-  });
-
-  // Scroll animations
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
-
-<!-- ══ MOBILE NAV ══ -->
-<script>
-  const hamburgerBtn = document.getElementById('hamburgerBtn');
-  const mobileMenu   = document.getElementById('mobileMenu');
-  const menuClose    = document.getElementById('menuClose');
-  function openMenu() { mobileMenu.classList.add('is-open'); requestAnimationFrame(() => mobileMenu.setAttribute('aria-hidden','false')); hamburgerBtn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
-  function closeMenu() { mobileMenu.setAttribute('aria-hidden','true'); hamburgerBtn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; setTimeout(()=>mobileMenu.classList.remove('is-open'),300); }
-  hamburgerBtn.addEventListener('click', openMenu);
-  menuClose.addEventListener('click', closeMenu);
-  mobileMenu.addEventListener('click', (e) => { if (e.target.closest('a')) closeMenu(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-</script>
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
