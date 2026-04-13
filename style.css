@@ -1016,3 +1016,29 @@ p {
     align-items: center;
 }
 
+/* ── STORY PAGE SPACING FIX ── */
+
+/* Space between Marcus, Nia, and the other team members */
+.crew-member, .timeline__item {
+    margin-bottom: 60px !important; 
+    display: block;
+    width: 100%;
+}
+
+/* Space between the photos and the text below them */
+.crew-member img, .timeline__item img {
+    margin-bottom: 25px !important;
+    border-radius: 8px; /* Keeps that clean Oven360 look */
+}
+
+/* Space between headings and the bio text */
+.crew-member h3, .timeline__item h3 {
+    margin-bottom: 10px !important;
+}
+
+/* Ensure the 'Meet the Crew' section has room at the top */
+#crew, .story-section {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+}
+
