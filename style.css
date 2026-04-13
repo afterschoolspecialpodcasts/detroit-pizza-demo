@@ -942,8 +942,77 @@ p {
 .mb-1 { margin-bottom: 1rem; }
 .mb-2 { margin-bottom: 2rem; }
 
+/* ── PIZZA HERO RESTORATION ── */
+.hero {
+    position: relative;
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-I copy and paste the CSS file for the pizza site. Is there anything in the file that would make the desktop or mobile not function right? 
-The our story section some of the words are index extreme left in the mobile viewer
+.hero h1 {
+    color: #fff !important; /* Forces the title to stay white */
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    margin-bottom: 1rem;
+}
 
-And the dysondigital.com link at the bottom of the footer is not going to the website, but staying on the homepage.
+.hero p {
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+/* ── BUTTON RESTORATION ── */
+.hero-btn-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background-color: #c0392b;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 15px 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* ── THE MOBILE PADDING FIX (The Gold Standard) ── */
+@media (max-width: 768px) {
+    .story-content, .timeline__item, .container, section {
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+        text-align: left;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* ── NAVBAR RECOVERY ── */
+.navbar {
+    background: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+}
+
