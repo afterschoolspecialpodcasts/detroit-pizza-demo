@@ -206,9 +206,24 @@
       .story-intro__grid { grid-template-columns: 1fr; gap: 3rem; }
       .story-intro__badge { bottom: -1rem; right: 0.5rem; }
       .timeline__line { display: none; }
-      .timeline__item { grid-template-columns: 60px 1fr; }
-      .timeline__item--right .timeline__content { grid-column: 2; }
+
+      /* Stack all timeline items: year bubble on top, content below */
+      .timeline__item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      /* Hide all spacers on mobile */
+      .timeline__spacer { display: none !important; }
+      /* Reset any grid-column overrides */
+      .timeline__item--right .timeline__content { grid-column: unset; }
       .timeline__item--right .timeline__spacer { display: none; }
+      /* Year bubble: always first */
+      .timeline__year { order: -1; }
+      /* Content card: full width */
+      .timeline__content { width: 100%; }
+
       .team__grid { grid-template-columns: repeat(2, 1fr); }
       .values__grid { grid-template-columns: 1fr; }
       .press__grid { grid-template-columns: 1fr; }
@@ -483,7 +498,7 @@
     </div>
     <div class="footer__bottom">
       <span>© 2024 Steel Pan Pizza Co. All rights reserved.</span>
-      <span>Built by <a href="#" rel="noopener">Dyson Digital</a></span>
+      <span>Built by <a href="https://www.dysondigital.co" target="_blank" rel="noopener">Dyson Digital</a></span>
     </div>
   </div>
 </footer>
