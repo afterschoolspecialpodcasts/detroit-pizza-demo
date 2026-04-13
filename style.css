@@ -942,7 +942,7 @@ p {
 .mb-1 { margin-bottom: 1rem; }
 .mb-2 { margin-bottom: 2rem; }
 
-/* ── PIZZA HERO RESTORATION ── */
+* ── PAGE SPECIFIC: MENU GRID (Moved from HTML) ── */
 .hero {
     position: relative;
     background-color: #1a1a1a;
@@ -1016,7 +1016,7 @@ p {
     align-items: center;
 }
 
-/* ── STORY PAGE SPACING FIX ── */
+/* ── PAGE SPECIFIC: STORY TIMELINE (Moved from HTML) ── */
 
 /* Space between Marcus, Nia, and the other team members */
 .crew-member, .timeline__item {
