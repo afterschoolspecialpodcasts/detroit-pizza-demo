@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Our Story — Steel Pan Pizza Co. | Detroit Deep Dish History</title>
+  <meta name="description" content="Learn how Steel Pan Pizza Co. was born in Detroit. Our history, our people, and our passion for authentic deep dish pizza.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .story-intro {
+      padding: 6rem 0;
+      background: var(--cream);
+    }
+    .story-intro__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .story-intro__img {
+      position: relative;
+    }
+    .story-intro__img img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: var(--shadow-lg);
+    }
+    .story-intro__badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      background: var(--red);
+      color: #fff;
+      padding: 1.25rem 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+    .story-intro__badge strong {
+      display: block;
+      font-family: var(--font-head);
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1;
+      opacity: 1;
+    }
+    .story-intro__badge span {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 1;
+    }
+
+    .story-lead {
+      font-family: var(--font-head);
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+      opacity: 1;
+    }
+
+    .timeline {
+      background: var(--charcoal);
+      padding: 6rem 0;
+    }
+    .timeline__inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .timeline__line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(255,255,255,0.1);
+      transform: translateX(-50%);
+    }
+    .timeline__item {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      gap: 1.5rem;
+      align-items: center;
+      margin-bottom: 3.5rem;
+    }
+    .timeline__item:last-child { margin-bottom: 0; }
+    .timeline__year {
+      width: 60px;
+      height: 60px;
+      background: var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      z-index: 1;
+      opacity: 1;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .timeline__content {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    .timeline__content-title {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+      opacity: 1;
+    }
+    .timeline__content-text {
+      font-size: 0.88rem;
+      color: rgba(250,247,242,0.65);
+      line-height: 1.6;
+      opacity: 1;
+    }
+    .timeline__item--right .timeline__content { grid-column: 3; }
+    .timeline__item--right .timeline__spacer { grid-column: 1; }
+    .timeline__spacer { /* empty */ }
+
+    .team {
+      padding: 6rem 0;
+      background: var(--warm-gray);
+    }
+    .team__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .team-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .team-card__img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+    .team-card__body { padding: 1.5rem; }
+    .team-card__name { font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.2rem; opacity: 1; }
+    .team-card__role { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 0.75rem; opacity: 1; }
+    .team-card__bio { font-size: 0.88rem; color: var(--mid-gray); line-height: 1.6; opacity: 1; }
+
+    .values {
+      padding: 6rem 0;
+      background: var(--cream);
+    }
+    .values__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .value-card {
+      padding: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .value-card__icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
+    .value-card__title { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; opacity: 1; }
+    .value-card__text { font-size: 0.9rem; color: var(--mid-gray); line-height: 1.6; opacity: 1; }
+
+    .press {
+      background: var(--charcoal);
+      padding: 5rem 0;
+    }
+    .press__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .press-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 1.75rem;
+    }
+    .press-card__outlet { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; opacity: 1; }
+    .press-card__quote { font-family: var(--font-head); font-style: italic; font-size: 1rem; color: var(--cream); line-height: 1.6; opacity: 1; }
+
+    @media (max-width: 900px) {
+      .story-intro__grid { grid-template-columns: 1fr; gap: 3rem; }
+      .story-intro__badge { bottom: -1rem; right: 0.5rem; }
+      .timeline__line { display: none; }
+      .timeline__item { grid-template-columns: 60px 1fr; }
+      .timeline__item--right .timeline__content { grid-column: 2; }
+      .timeline__item--right .timeline__spacer { display: none; }
+      .team__grid { grid-template-columns: repeat(2, 1fr); }
+      .values__grid { grid-template-columns: 1fr; }
+      .press__grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .team__grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="navbar__inner">
+    <a href="index.html" class="navbar__logo" aria-label="Steel Pan Pizza Co. Home">
+      <img src="images/pizzalogo.PNG" alt="Steel Pan Pizza Co. Logo">
+      <div class="navbar__logo-text">Steel Pan Pizza Co.<span>Detroit-Style Deep Dish</span></div>
+    </a>
+    <ul class="navbar__links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="story.html" class="active">Our Story</a></li>
+      <li><a href="catering.html">Catering</a></li>
+      <li><a href="locations.html">Locations</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="navbar__cta"><a href="menu.html" class="btn btn--primary demo-trigger">Order Now</a></div>
+    <button class="navbar__hamburger" aria-label="Open mobile menu" aria-expanded="false" id="hamburgerBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══ MOBILE MENU ══ -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <button class="mobile-menu__close" id="menuClose" aria-label="Close menu">✕</button>
+  <a href="index.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="story.html">Our Story</a>
+  <a href="catering.html">Catering</a>
+  <a href="locations.html">Locations</a>
+  <a href="contact.html">Contact</a>
+  <div class="mobile-menu__cta"><a href="menu.html" class="btn btn--primary demo-trigger">Order Now</a></div>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<section class="page-hero" aria-labelledby="pageHeroTitle">
+  <div class="container">
+    <span class="page-hero__eyebrow">Steel Pan Pizza Co.</span>
+    <h1 class="page-hero__title" id="pageHeroTitle">Our Story</h1>
+    <p class="page-hero__sub">A pan, a dream, and a city that believed in something different.</p>
+  </div>
+</section>
+
+<!-- ══ STORY INTRO ══ -->
+<section class="story-intro" aria-labelledby="storyIntroTitle">
+  <div class="container">
+    <div class="story-intro__grid">
+      <div class="story-intro__img fade-up">
+        <img src="images/maneatingpizza.jpg" alt="Founder Marcus enjoying his creation" loading="lazy">
+        <div class="story-intro__badge" aria-label="Founded in 2011">
+          <strong>2011</strong>
+          <span>Est. Detroit</span>
+        </div>
+      </div>
+      <div class="fade-up">
+        <span class="section-eyebrow">How It Started</span>
+        <h2 id="storyIntroTitle" class="section-title">A Pan Found in a Flea Market Changed Everything.</h2>
+        <div class="divider"></div>
+        <p class="story-lead">"I found a battered automotive steel pan in a Eastern Market flea market. Something about its weight told me it was meant to hold more than machine parts."</p>
+        <p style="color: var(--mid-gray); line-height: 1.7; margin-bottom: 1.25rem; opacity: 1;">In 2011, Marcus Washington brought home that pan, seasoned it with oil, and baked his first Detroit-style pie for his family in the Midtown neighborhood he'd grown up in. Within a week, the whole block was knocking on his door.</p>
+        <p style="color: var(--mid-gray); line-height: 1.7; opacity: 1;">What started in a home kitchen became a food truck, then a restaurant, then a Detroit institution. Today, Steel Pan Pizza Co. operates three locations across metro Detroit — each one honoring that original pan and the city that raised it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TIMELINE ══ -->
+<section class="timeline" aria-labelledby="timelineTitle">
+  <div class="container">
+    <div class="text-center" style="margin-bottom: 4rem;">
+      <span class="section-eyebrow" style="color: var(--gold);">Our Journey</span>
+      <h2 id="timelineTitle" class="section-title" style="color: var(--cream);">From One Pan to a Detroit Icon.</h2>
+    </div>
+    <div class="timeline__inner">
+      <div class="timeline__line" aria-hidden="true"></div>
+
+      <div class="timeline__item fade-up">
+        <div class="timeline__content">
+          <div class="timeline__content-title">A Home Kitchen Obsession</div>
+          <p class="timeline__content-text">Marcus bakes his first steel pan pizza for friends. Within a month, neighbors are placing "orders" and leaving cash on his porch.</p>
+        </div>
+        <div class="timeline__year">2011</div>
+        <div class="timeline__spacer"></div>
+      </div>
+
+      <div class="timeline__item timeline__item--right fade-up">
+        <div class="timeline__spacer"></div>
+        <div class="timeline__year">2013</div>
+        <div class="timeline__content">
+          <div class="timeline__content-title">The Steel Pan Food Truck</div>
+          <p class="timeline__content-text">A bright red food truck hits Eastern Market. Lines form before the truck opens. Detroit Free Press calls it "the best pizza in Michigan."</p>
+        </div>
+      </div>
+
+      <div class="timeline__item fade-up">
+        <div class="timeline__content">
+          <div class="timeline__content-title">First Brick-and-Mortar Opens</div>
+          <p class="timeline__content-text">4521 Woodward Ave, Midtown Detroit. The original location sells out every single night for its first three months.</p>
+        </div>
+        <div class="timeline__year">2015</div>
+        <div class="timeline__spacer"></div>
+      </div>
+
+      <div class="timeline__item timeline__item--right fade-up">
+        <div class="timeline__spacer"></div>
+        <div class="timeline__year">2018</div>
+        <div class="timeline__content">
+          <div class="timeline__content-title">Corktown &amp; Ferndale Expand</div>
+          <p class="timeline__content-text">Two new locations open to overwhelming demand. Steel Pan Pizza is named "Best Detroit Restaurant" by Detroit Metro Times for the first time.</p>
+        </div>
+      </div>
+
+      <div class="timeline__item fade-up">
+        <div class="timeline__content">
+          <div class="timeline__content-title">Catering Goes City-Wide</div>
+          <p class="timeline__content-text">A dedicated catering program launches. Ford, GM, and dozens of weddings trust Steel Pan to feed their biggest events.</p>
+        </div>
+        <div class="timeline__year">2021</div>
+        <div class="timeline__spacer"></div>
+      </div>
+
+      <div class="timeline__item timeline__item--right fade-up">
+        <div class="timeline__spacer"></div>
+        <div class="timeline__year">Today</div>
+        <div class="timeline__content">
+          <div class="timeline__content-title">Still Crafting, Still Detroit</div>
+          <p class="timeline__content-text">3 locations, 2,400+ reviews, and the same original recipe. That flea market pan still lives on the Midtown wall — now behind glass.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VALUES ══ -->
+<section class="values" aria-labelledby="valuesTitle">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-eyebrow">What We Stand For</span>
+      <h2 id="valuesTitle" class="section-title">Our Craft, Our Code.</h2>
+    </div>
+    <div class="values__grid">
+      <div class="value-card fade-up">
+        <span class="value-card__icon" aria-hidden="true">🔥</span>
+        <div class="value-card__title">Craft Over Convenience</div>
+        <p class="value-card__text">We never pre-make, never freeze, never cut corners. Every pan is built from scratch, every day. It takes longer. It's worth it.</p>
+      </div>
+      <div class="value-card fade-up">
+        <span class="value-card__icon" aria-hidden="true">🏭</span>
+        <div class="value-card__title">Detroit Through &amp; Through</div>
+        <p class="value-card__text">We source from Michigan suppliers whenever possible. From our flour to our dairy to our beer — we believe in building up the city that built us.</p>
+      </div>
+      <div class="value-card fade-up">
+        <span class="value-card__icon" aria-hidden="true">🤝</span>
+        <div class="value-card__title">Community First</div>
+        <p class="value-card__text">We hire locally, donate weekly to Detroit food banks, and host free community dinners on the first Thursday of every month.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TEAM ══ -->
+<section class="team" aria-labelledby="teamTitle">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-eyebrow">The People Behind the Pan</span>
+      <h2 id="teamTitle" class="section-title">Meet the Crew.</h2>
+    </div>
+    <div class="team__grid">
+      <div class="team-card fade-up">
+        <img class="team-card__img" src="images/maneatingpizza.jpg" alt="Marcus Washington, Founder" loading="lazy">
+        <div class="team-card__body">
+          <div class="team-card__name">Marcus Washington</div>
+          <div class="team-card__role">Founder &amp; Head Pizzamaker</div>
+          <p class="team-card__bio">Midtown native. Flea market enthusiast. The man who turned a steel pan into a Detroit institution.</p>
+        </div>
+      </div>
+      <div class="team-card fade-up">
+        <img class="team-card__img" src="images/womaneatinpizza.jpg" alt="Nia Johnson, Head Chef" loading="lazy">
+        <div class="team-card__body">
+          <div class="team-card__name">Nia Johnson</div>
+          <div class="team-card__role">Head Chef &amp; Menu Director</div>
+          <p class="team-card__bio">Johnson &amp; Wales grad who turned down a Chicago restaurant offer to come home to Detroit. Best decision she ever made.</p>
+        </div>
+      </div>
+      <div class="team-card fade-up">
+        <img class="team-card__img" src="images/friendseatingpizza.jpg" alt="The Steel Pan Crew" loading="lazy">
+        <div class="team-card__body">
+          <div class="team-card__name">The Whole Crew</div>
+          <div class="team-card__role">Team Steel Pan</div>
+          <p class="team-card__bio">40+ Detroiters who show up daily with pride, pull pans from the oven with love, and feed this city with everything they've got.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRESS ══ -->
+<section class="press" aria-labelledby="pressTitle">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-eyebrow" style="color: var(--gold);">As Seen In</span>
+      <h2 id="pressTitle" class="section-title" style="color: var(--cream);">Detroit &amp; Beyond.</h2>
+    </div>
+    <div class="press__grid">
+      <div class="press-card fade-up">
+        <div class="press-card__outlet">Detroit Free Press</div>
+        <p class="press-card__quote">"The best pizza in Michigan — bar none. Steel Pan has mastered the deep dish in a way that makes you forget every other pie you've ever had."</p>
+      </div>
+      <div class="press-card fade-up">
+        <div class="press-card__outlet">Eater Detroit</div>
+        <p class="press-card__quote">"If you're going to eat one thing in Detroit, make it a square. Steel Pan is the definitive destination for authentic Motor City pizza."</p>
+      </div>
+      <div class="press-card fade-up">
+        <div class="press-card__outlet">Detroit Metro Times</div>
+        <p class="press-card__quote">"Best Detroit Restaurant 2018, 2020, 2022. Three-time winner. Some things just don't need to be debated."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="images/pizzalogo.PNG" alt="Steel Pan Pizza Co." loading="lazy">
+        <p>Detroit's home of authentic square deep dish since 2011.</p>
+        <div class="footer__social" aria-label="Social media links">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Twitter/X">x</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Navigate</div>
+        <ul class="footer__links" role="list">
+          <li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li>
+          <li><a href="gallery.html">Gallery</a></li><li><a href="story.html">Our Story</a></li>
+          <li><a href="catering.html">Catering</a></li><li><a href="locations.html">Locations</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Hours</div>
+        <address class="footer__address" style="font-style:normal;">
+          <strong>Mon–Thu</strong> 11am – 10pm<br>
+          <strong>Fri–Sat</strong> 11am – 11pm<br>
+          <strong>Sunday</strong> 12pm – 9pm
+        </address>
+      </div>
+      <div>
+        <div class="footer__col-title">Detroit HQ</div>
+        <address class="footer__address" style="font-style:normal;">
+          <strong>Midtown Location</strong>
+          4521 Woodward Ave, Detroit, MI 48201<br><br>
+          <a href="tel:+13135550192" style="color:var(--gold);">(313) 555-0192</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2024 Steel Pan Pizza Co. All rights reserved.</span>
+      <span>Built by <a href="#" rel="noopener">Dyson Digital</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ DEMO MODAL ══ -->
+<div class="demo-modal-overlay" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle">
+  <div class="demo-modal">
+    <div class="demo-modal__icon" aria-hidden="true">🍕</div>
+    <h2 class="demo-modal__title" id="demoModalTitle">Demo Site Only</h2>
+    <p class="demo-modal__body">This is a demo site for display purposes only. No orders can be placed.</p>
+    <p class="demo-modal__credit">Built by Dyson Digital</p>
+    <button class="demo-modal__close" id="demoClose">Got It</button>
+  </div>
+</div>
+
+<script>
+  const demoModal = document.getElementById('demoModal');
+  document.querySelectorAll('.demo-trigger').forEach(btn => {
+    btn.addEventListener('click', e => { e.preventDefault(); demoModal.classList.add('is-active'); });
+  });
+  document.getElementById('demoClose').addEventListener('click', () => demoModal.classList.remove('is-active'));
+  demoModal.addEventListener('click', e => { if (e.target === demoModal) demoModal.classList.remove('is-active'); });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+<!-- ══ MOBILE NAV ══ -->
+<script>
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu   = document.getElementById('mobileMenu');
+  const menuClose    = document.getElementById('menuClose');
+  function openMenu() { mobileMenu.classList.add('is-open'); requestAnimationFrame(() => mobileMenu.setAttribute('aria-hidden','false')); hamburgerBtn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closeMenu() { mobileMenu.setAttribute('aria-hidden','true'); hamburgerBtn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; setTimeout(()=>mobileMenu.classList.remove('is-open'),300); }
+  hamburgerBtn.addEventListener('click', openMenu);
+  menuClose.addEventListener('click', closeMenu);
+  mobileMenu.addEventListener('click', (e) => { if (e.target.closest('a')) closeMenu(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+</script>
+</body>
+</html>

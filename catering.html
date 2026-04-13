@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Catering — Steel Pan Pizza Co. | Detroit Deep Dish for Events</title>
+  <meta name="description" content="Book Steel Pan Pizza Co. for your next corporate lunch, wedding, or party. Detroit-style deep dish catering across metro Detroit.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .catering-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 560px;
+    }
+    .catering-intro__img { overflow: hidden; }
+    .catering-intro__img img { width: 100%; height: 100%; object-fit: cover; }
+    .catering-intro__content {
+      padding: 5rem 4rem;
+      background: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .packages {
+      padding: 6rem 0;
+      background: var(--cream);
+    }
+    .packages__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .package-card {
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      position: relative;
+    }
+    .package-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+    .package-card--featured {
+      border-color: var(--red);
+    }
+    .package-card__badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--red);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.9rem;
+      border-bottom-left-radius: 8px;
+      opacity: 1;
+    }
+    .package-card__header {
+      background: var(--charcoal);
+      padding: 2rem;
+      text-align: center;
+    }
+    .package-card__featured-header { background: var(--red); }
+    .package-card__name {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+      opacity: 1;
+    }
+    .package-card__serves {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 1;
+    }
+    .package-card__price {
+      font-family: var(--font-head);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--cream);
+      margin-top: 0.75rem;
+      opacity: 1;
+    }
+    .package-card__price span {
+      font-size: 1rem;
+      font-weight: 400;
+      opacity: 0.7;
+    }
+    .package-card__body { padding: 2rem; }
+    .package-card__features {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-bottom: 1.75rem;
+    }
+    .package-card__feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--charcoal);
+      line-height: 1.4;
+      opacity: 1;
+    }
+    .package-card__feature::before {
+      content: '✓';
+      color: var(--red);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    .how-it-works {
+      background: var(--warm-gray);
+      padding: 6rem 0;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 2rem;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: var(--border);
+      z-index: 0;
+    }
+    .step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .step__number {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      opacity: 1;
+    }
+    .step__title { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; opacity: 1; }
+    .step__text { font-size: 0.88rem; color: var(--mid-gray); line-height: 1.6; opacity: 1; }
+
+    .inquiry-section {
+      padding: 6rem 0;
+      background: var(--charcoal);
+    }
+    .inquiry-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .inquiry-info h2 { color: var(--cream); font-size: 2rem; margin-bottom: 1rem; opacity: 1; }
+    .inquiry-info p { color: rgba(250,247,242,0.7); line-height: 1.7; margin-bottom: 1.5rem; opacity: 1; }
+    .inquiry-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .inquiry-detail__icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .inquiry-detail__label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); opacity: 1; }
+    .inquiry-detail__value { font-size: 0.92rem; color: var(--cream); opacity: 1; }
+
+    .catering-form {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+    .catering-form h3 { font-size: 1.4rem; margin-bottom: 0.25rem; opacity: 1; }
+    .catering-form p { font-size: 0.88rem; color: var(--mid-gray); margin-bottom: 1.75rem; opacity: 1; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    @media (max-width: 900px) {
+      .catering-intro { grid-template-columns: 1fr; }
+      .catering-intro__img { height: 320px; }
+      .catering-intro__content { padding: 3rem 2rem; }
+      .packages__grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .steps::before { display: none; }
+      .inquiry-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="navbar__inner">
+    <a href="index.html" class="navbar__logo" aria-label="Steel Pan Pizza Co. Home">
+      <img src="images/pizzalogo.PNG" alt="Steel Pan Pizza Co. Logo">
+      <div class="navbar__logo-text">Steel Pan Pizza Co.<span>Detroit-Style Deep Dish</span></div>
+    </a>
+    <ul class="navbar__links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="catering.html" class="active">Catering</a></li>
+      <li><a href="locations.html">Locations</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="navbar__cta"><a href="catering.html" class="btn btn--primary demo-trigger">Get a Quote</a></div>
+    <button class="navbar__hamburger" aria-label="Open mobile menu" aria-expanded="false" id="hamburgerBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══ MOBILE MENU ══ -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <button class="mobile-menu__close" id="menuClose" aria-label="Close menu">✕</button>
+  <a href="index.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="story.html">Our Story</a>
+  <a href="catering.html">Catering</a>
+  <a href="locations.html">Locations</a>
+  <a href="contact.html">Contact</a>
+  <div class="mobile-menu__cta"><a href="catering.html" class="btn btn--primary demo-trigger">Get a Quote</a></div>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<section class="page-hero" aria-labelledby="pageHeroTitle">
+  <div class="container">
+    <span class="page-hero__eyebrow">Steel Pan Pizza Co.</span>
+    <h1 class="page-hero__title" id="pageHeroTitle">Catering</h1>
+    <p class="page-hero__sub">Big pans for big moments. Let us feed your next event.</p>
+  </div>
+</section>
+
+<!-- ══ INTRO SPLIT ══ -->
+<section aria-labelledby="cateringIntroTitle">
+  <div class="catering-intro">
+    <div class="catering-intro__img">
+      <img src="images/friendseatingpizza.jpg" alt="Large catered event with Steel Pan Pizza" loading="lazy">
+    </div>
+    <div class="catering-intro__content">
+      <span class="section-eyebrow" style="color: var(--gold);">We Bring the Pans</span>
+      <h2 id="cateringIntroTitle" class="section-title" style="color: var(--cream);">From Office Lunch to Wedding Reception.</h2>
+      <div class="divider divider--gold"></div>
+      <p style="color: rgba(250,247,242,0.75); line-height: 1.7; margin-bottom: 1.5rem; opacity: 1;">Whether it's a 10-person lunch or a 500-person wedding, Steel Pan Pizza Co. has the pans, the people, and the passion to make your event unforgettable.</p>
+      <p style="color: rgba(250,247,242,0.75); line-height: 1.7; margin-bottom: 2rem; opacity: 1;">We handle setup, serving, and cleanup. You just enjoy the party. Our catering team has served Ford, General Motors, Quicken Loans, and hundreds of Detroit families on their most important days.</p>
+      <a href="#inquiry" class="btn btn--gold demo-trigger">Request a Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PACKAGES ══ -->
+<section class="packages" aria-labelledby="packagesTitle">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-eyebrow">Catering Packages</span>
+      <h2 id="packagesTitle" class="section-title">Find Your Fit.</h2>
+      <p class="section-subtitle" style="margin: 0 auto;">All packages include delivery within 30 miles of any Detroit location. Custom packages available.</p>
+    </div>
+    <div class="packages__grid">
+      <div class="package-card fade-up">
+        <div class="package-card__header">
+          <div class="package-card__name">The Lunch Box</div>
+          <div class="package-card__serves">Serves 10–25</div>
+          <div class="package-card__price">$180 <span>/ event</span></div>
+        </div>
+        <div class="package-card__body">
+          <div class="package-card__features">
+            <div class="package-card__feature">3 signature pans (choice of 3 varieties)</div>
+            <div class="package-card__feature">Garlic bread sticks for the group</div>
+            <div class="package-card__feature">Disposable plates &amp; napkins</div>
+            <div class="package-card__feature">Dipping sauce selection</div>
+            <div class="package-card__feature">Delivery included within 30mi</div>
+          </div>
+          <button class="btn btn--outline-dark demo-trigger" style="width: 100%; justify-content: center;">Request Quote</button>
+        </div>
+      </div>
+
+      <div class="package-card package-card--featured fade-up">
+        <div class="package-card__badge">Most Popular</div>
+        <div class="package-card__header package-card__featured-header">
+          <div class="package-card__name">The Block Party</div>
+          <div class="package-card__serves">Serves 40–80</div>
+          <div class="package-card__price">$480 <span>/ event</span></div>
+        </div>
+        <div class="package-card__body">
+          <div class="package-card__features">
+            <div class="package-card__feature">8 pans — you choose all varieties</div>
+            <div class="package-card__feature">Full starter spread (wings, salads, sticks)</div>
+            <div class="package-card__feature">On-site serving staff (2 hours)</div>
+            <div class="package-card__feature">Full setup &amp; breakdown</div>
+            <div class="package-card__feature">Real plates, serving utensils</div>
+            <div class="package-card__feature">Soft drinks included</div>
+          </div>
+          <button class="btn btn--primary demo-trigger" style="width: 100%; justify-content: center;">Request Quote</button>
+        </div>
+      </div>
+
+      <div class="package-card fade-up">
+        <div class="package-card__header">
+          <div class="package-card__name">The Full Detroit</div>
+          <div class="package-card__serves">Serves 100+</div>
+          <div class="package-card__price">Custom <span>pricing</span></div>
+        </div>
+        <div class="package-card__body">
+          <div class="package-card__features">
+            <div class="package-card__feature">Unlimited pans — we calculate for you</div>
+            <div class="package-card__feature">Custom menu design</div>
+            <div class="package-card__feature">Dedicated event coordinator</div>
+            <div class="package-card__feature">Full-service staff all day</div>
+            <div class="package-card__feature">Setup, serving &amp; breakdown</div>
+            <div class="package-card__feature">Branded napkins &amp; serving ware</div>
+            <div class="package-card__feature">Bar &amp; drink service available</div>
+          </div>
+          <button class="btn btn--outline-dark demo-trigger" style="width: 100%; justify-content: center;">Request Quote</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS ══ -->
+<section class="how-it-works" aria-labelledby="howTitle">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-eyebrow">The Process</span>
+      <h2 id="howTitle" class="section-title">How Catering Works.</h2>
+    </div>
+    <div class="steps" role="list">
+      <div class="step fade-up" role="listitem">
+        <div class="step__number" aria-label="Step 1">1</div>
+        <div class="step__title">Submit Your Inquiry</div>
+        <p class="step__text">Fill out the form below with your event details. We'll get back to you within 24 hours.</p>
+      </div>
+      <div class="step fade-up" role="listitem">
+        <div class="step__number" aria-label="Step 2">2</div>
+        <div class="step__title">Customize Your Menu</div>
+        <p class="step__text">We'll build a custom package around your guest count, dietary needs, and budget.</p>
+      </div>
+      <div class="step fade-up" role="listitem">
+        <div class="step__number" aria-label="Step 3">3</div>
+        <div class="step__title">We Handle Everything</div>
+        <p class="step__text">Our team arrives early, sets up, serves, and cleans up. Zero stress on your end.</p>
+      </div>
+      <div class="step fade-up" role="listitem">
+        <div class="step__number" aria-label="Step 4">4</div>
+        <div class="step__title">Enjoy the Event</div>
+        <p class="step__text">You enjoy your guests. We make sure every pan is perfect and every guest is full.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INQUIRY FORM ══ -->
+<section class="inquiry-section" id="inquiry" aria-labelledby="inquiryTitle">
+  <div class="container">
+    <div class="inquiry-grid">
+      <div class="inquiry-info">
+        <span class="section-eyebrow" style="color: var(--gold);">Let's Talk Pans</span>
+        <h2 id="inquiryTitle">Request a Catering Quote.</h2>
+        <div class="divider divider--gold"></div>
+        <p>Tell us about your event and we'll put together a proposal within 24 hours. No commitment required.</p>
+
+        <div class="inquiry-detail">
+          <div class="inquiry-detail__icon" aria-hidden="true">📅</div>
+          <div>
+            <div class="inquiry-detail__label">Lead Time</div>
+            <div class="inquiry-detail__value">Please book at least 72 hours in advance. Larger events: 1 week minimum.</div>
+          </div>
+        </div>
+        <div class="inquiry-detail">
+          <div class="inquiry-detail__icon" aria-hidden="true">📍</div>
+          <div>
+            <div class="inquiry-detail__label">Service Area</div>
+            <div class="inquiry-detail__value">All of metro Detroit and surrounding suburbs within 30 miles. Farther by arrangement.</div>
+          </div>
+        </div>
+        <div class="inquiry-detail">
+          <div class="inquiry-detail__icon" aria-hidden="true">📞</div>
+          <div>
+            <div class="inquiry-detail__label">Phone</div>
+            <div class="inquiry-detail__value"><a href="tel:+13135550193" style="color: var(--gold);">(313) 555-0193</a> — Catering line</div>
+          </div>
+        </div>
+        <div class="inquiry-detail">
+          <div class="inquiry-detail__icon" aria-hidden="true">✉️</div>
+          <div>
+            <div class="inquiry-detail__label">Email</div>
+            <div class="inquiry-detail__value"><a href="mailto:catering@steelpanpizza.com" style="color: var(--gold);">catering@steelpanpizza.com</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="catering-form" role="form" aria-labelledby="formTitle">
+        <h3 id="formTitle">Event Inquiry Form</h3>
+        <p>We'll respond within 24 hours with a custom quote.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name *</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Marcus" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name *</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Washington" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="you@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone *</label>
+            <input type="tel" id="phone" name="phone" placeholder="(313) 000-0000" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="eventDate">Event Date *</label>
+            <input type="date" id="eventDate" name="eventDate" required>
+          </div>
+          <div class="form-group">
+            <label for="guestCount">Guest Count *</label>
+            <select id="guestCount" name="guestCount" required>
+              <option value="">Select range</option>
+              <option>10–25 guests</option>
+              <option>25–50 guests</option>
+              <option>50–100 guests</option>
+              <option>100–200 guests</option>
+              <option>200+ guests</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="eventType">Event Type</label>
+          <select id="eventType" name="eventType">
+            <option value="">Select event type</option>
+            <option>Corporate Lunch / Dinner</option>
+            <option>Wedding / Rehearsal Dinner</option>
+            <option>Birthday Party</option>
+            <option>Community / Block Party</option>
+            <option>Holiday Party</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="eventDetails">Tell Us More</label>
+          <textarea id="eventDetails" name="eventDetails" placeholder="Event location, dietary restrictions, special requests, timeline..."></textarea>
+        </div>
+        <button type="button" class="btn btn--primary demo-trigger" style="width: 100%; justify-content: center; padding: 1rem;">Submit Catering Request</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="images/pizzalogo.PNG" alt="Steel Pan Pizza Co." loading="lazy">
+        <p>Detroit's home of authentic square deep dish since 2011.</p>
+        <div class="footer__social" aria-label="Social media links">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Twitter/X">x</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Navigate</div>
+        <ul class="footer__links" role="list">
+          <li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li>
+          <li><a href="gallery.html">Gallery</a></li><li><a href="story.html">Our Story</a></li>
+          <li><a href="catering.html">Catering</a></li><li><a href="locations.html">Locations</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Hours</div>
+        <address class="footer__address" style="font-style:normal;">
+          <strong>Mon–Thu</strong> 11am – 10pm<br>
+          <strong>Fri–Sat</strong> 11am – 11pm<br>
+          <strong>Sunday</strong> 12pm – 9pm
+        </address>
+      </div>
+      <div>
+        <div class="footer__col-title">Catering Line</div>
+        <address class="footer__address" style="font-style:normal;">
+          <a href="tel:+13135550193" style="color:var(--gold);">(313) 555-0193</a><br>
+          <a href="mailto:catering@steelpanpizza.com" style="color:var(--gold);">catering@steelpanpizza.com</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2024 Steel Pan Pizza Co. All rights reserved.</span>
+      <span>Built by <a href="#" rel="noopener">Dyson Digital</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ DEMO MODAL ══ -->
+<div class="demo-modal-overlay" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle">
+  <div class="demo-modal">
+    <div class="demo-modal__icon" aria-hidden="true">🍕</div>
+    <h2 class="demo-modal__title" id="demoModalTitle">Demo Site Only</h2>
+    <p class="demo-modal__body">This is a demo site for display purposes only. No orders can be placed.</p>
+    <p class="demo-modal__credit">Built by Dyson Digital</p>
+    <button class="demo-modal__close" id="demoClose">Got It</button>
+  </div>
+</div>
+
+<script>
+  const demoModal = document.getElementById('demoModal');
+  document.querySelectorAll('.demo-trigger').forEach(btn => {
+    btn.addEventListener('click', e => { e.preventDefault(); demoModal.classList.add('is-active'); });
+  });
+  document.getElementById('demoClose').addEventListener('click', () => demoModal.classList.remove('is-active'));
+  demoModal.addEventListener('click', e => { if (e.target === demoModal) demoModal.classList.remove('is-active'); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') demoModal.classList.remove('is-active'); });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+<!-- ══ MOBILE NAV ══ -->
+<script>
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu   = document.getElementById('mobileMenu');
+  const menuClose    = document.getElementById('menuClose');
+  function openMenu() { mobileMenu.classList.add('is-open'); requestAnimationFrame(() => mobileMenu.setAttribute('aria-hidden','false')); hamburgerBtn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closeMenu() { mobileMenu.setAttribute('aria-hidden','true'); hamburgerBtn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; setTimeout(()=>mobileMenu.classList.remove('is-open'),300); }
+  hamburgerBtn.addEventListener('click', openMenu);
+  menuClose.addEventListener('click', closeMenu);
+  mobileMenu.addEventListener('click', (e) => { if (e.target.closest('a')) closeMenu(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+</script>
+</body>
+</html>
