@@ -1,261 +1,109 @@
 /* ═══════════════════════════════════════════════
-   STEEL PAN PIZZA CO. — SHARED STYLESHEET
-   Dyson Digital Gold Standard Edition V18
+   STEEL PAN PIZZA CO. — EMERGENCY RECOVERY CSS
 ═══════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap');
 
-/* ── GOLD STANDARD GLOBAL SAFETY ──────────────── */
-*, *::before, *::after { 
-  box-sizing: border-box; 
-  margin: 0; 
-  padding: 0; 
+/* ── THE SAFETY GUTTER (Fixes the Left Indent) ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { 
+    overflow-x: hidden; 
+    background-color: #faf7f2; /* Your Cream */
+    font-family: 'DM Sans', sans-serif;
 }
 
-h1, h2, h3, h4, h5, p, li, a, span { 
-  overflow: visible; /* Prevents text clipping on mobile */
-  line-height: 1.6;
+section, .container, .story-section {
+    padding-left: 25px !important;  /* Forces the text away from the left edge */
+    padding-right: 25px !important;
+    width: 100%;
 }
 
-section, .container {
-  padding-left: 20px;  /* Essential for mobile breathing room */
-  padding-right: 20px;
-}
+h1, h2, h3 { font-family: 'Playfair Display', serif; overflow: visible; }
 
-/* ── CSS VARIABLES ───────────────────────────── */
-:root {
-  --cream:      #faf7f2;
-  --charcoal:   #1a1a1a;
-  --red:        #c0392b;
-  --red-dark:   #a93226;
-  --gold:       #d4a849;
-  --warm-gray:  #f0ebe3;
-  --mid-gray:   #6b6460;
-  --border:     rgba(26,26,26,0.1);
-
-  --font-head:  'Playfair Display', Georgia, serif;
-  --font-body:  'DM Sans', sans-serif;
-
-  --nav-h:      72px;
-  --radius:     4px;
-  
-  /* Gold Standard Stacking Order */
-  --z-nav:      999;
-  --z-menu:     1050; /* Above Hero elements */
-  --z-close:    1100; /* Absolute top layer */
-  --z-modal:    9999; /* Highest possible for demo modal */
-}
-
-/* ── BASE ───────────────────────────────────── */
-html { scroll-behavior: smooth; font-size: 16px; }
-
-body {
-  font-family: var(--font-body);
-  background: var(--cream);
-  color: var(--charcoal);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-img { max-width: 100%; height: auto; display: block; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; }
-
-/* ── TYPOGRAPHY ──────────────────────────────── */
-h1, h2, h3, h4, h5 {
-  font-family: var(--font-head);
-  line-height: 1.2;
-  color: var(--charcoal);
-  opacity: 1;
-}
-
-.section-title {
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.section-subtitle {
-  font-size: 1.1rem;
-  color: var(--mid-gray);
-  max-width: 560px;
-  margin: 0 auto;
-}
-
-/* ── LAYOUT HELPERS ─────────────────────────── */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.section { padding: 6rem 0; }
-.section--dark { background: var(--charcoal); color: var(--cream); }
-.section--dark h1, .section--dark h2, .section--dark p { color: var(--cream); }
-.text-center { text-align: center; }
-
-/* ── BUTTONS ─────────────────────────────────── */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.9rem 2rem;
-  border-radius: var(--radius);
-  font-weight: 600;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: all 0.22s ease;
-}
-
-.btn--primary { background: var(--red); color: #fff; border-color: var(--red); }
-.btn--primary:hover { background: var(--red-dark); transform: translateY(-2px); }
-
-/* ── NAVBAR ──────────────────────────────────── */
+/* ── NAVBAR FIX (One line fix) ── */
 .navbar {
-  position: sticky;
-  top: 0;
-  height: var(--nav-h);
-  background: var(--charcoal);
-  z-index: var(--z-nav);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-
-.navbar__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.navbar__logo img { height: 44px; width: auto; }
-
-.navbar__links { display: flex; align-items: center; gap: 1rem; }
-.navbar__links a { 
-    font-size: 0.87rem; 
-    color: rgba(250,247,242,0.8); 
-    padding: 0.5rem;
-}
-.navbar__links a:hover, .navbar__links a.active { color: var(--cream); }
-
-.navbar__hamburger {
-  display: none;
-  width: 44px;
-  height: 44px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.navbar__hamburger span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--cream);
-  margin: 5px auto;
-}
-
-/* ── MOBILE MENU (Gold Standard Fix) ─────────── */
-.mobile-menu {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: var(--charcoal);
-  z-index: var(--z-menu);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-}
-
-.mobile-menu.is-open { display: flex; }
-
-.mobile-menu__close {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  width: 44px;
-  height: 44px;
-  background: rgba(255,255,255,0.1);
-  border: none;
-  color: var(--cream);
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: var(--z-close);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.mobile-menu a {
-  font-family: var(--font-head);
-  font-size: 2.2rem;
-  color: var(--cream);
-  padding: 1rem;
-}
-
-/* ── HERO ────────────────────────────────────── */
-.hero {
-  position: relative;
-  min-height: calc(100vh - var(--nav-h));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-}
-
-.hero__bg { position: absolute; inset: 0; z-index: 0; }
-.hero__bg img { width: 100%; height: 100%; object-fit: cover; }
-
-.hero__overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.65); /* Gold Standard opacity */
-  z-index: 1;
-}
-
-.hero__content { position: relative; z-index: 2; max-width: 800px; padding: 0 20px; }
-.hero__title { font-size: clamp(2.8rem, 6vw, 5rem); color: var(--cream); margin-bottom: 1.5rem; }
-
-/* ── OUR STORY (Mobile Align Fix) ────────────── */
-.story-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    background-color: #1a1a1a;
+    height: 80px;
+    display: flex;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* ── FOOTER ──────────────────────────────────── */
-.footer { background: #111; padding: 4rem 0 2rem; color: rgba(255,255,255,0.6); }
-.footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; }
-.footer__bottom { 
-    border-top: 1px solid rgba(255,255,255,0.1); 
-    padding-top: 2rem; 
-    margin-top: 2rem;
+.navbar-inner, .navbar__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hamburger Fix */
+.hamburger, .navbar__hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.hamburger span, .navbar__hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #faf7f2; /* Ensures the lines are visible */
+}
+
+/* ── HERO & LOGO FIX ── */
+#hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    min-height: 80vh;
+    background-color: #1a1a1a;
+    padding: 60px 20px;
 }
 
-/* ── DEMO MODAL ──────────────────────────────── */
-.demo-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  z-index: var(--z-modal);
-  display: none;
-  align-items: center;
-  justify-content: center;
+.hero-logo {
+    max-width: 600px;
+    width: 90%;
+    height: auto;
 }
-.demo-modal-overlay.is-active { display: flex; }
-.demo-modal { background: var(--cream); padding: 3rem; max-width: 500px; border-radius: 8px; text-align: center; }
 
-/* ── RESPONSIVE ──────────────────────────────── */
-@media (max-width: 768px) {
-  .navbar__links, .navbar__cta { display: none; }
-  .navbar__hamburger { display: flex; }
-  .story-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .footer__grid { grid-template-columns: 1fr; }
-  .section { padding: 4rem 0; }
+/* ── MOBILE MENU (Ghost Button Fix) ── */
+#mobileMenu, .mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: #1a1a1a;
+    z-index: 1100;
+    display: none; /* Controlled by JS */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#mobileMenu.open, .mobile-menu.is-open { display: flex; }
+
+.mobile-close, .mobile-menu__close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 3rem;
+    color: #c0392b; /* Red */
+    cursor: pointer;
+    z-index: 1200; /* Top Layer */
+}
+
+/* ── OUR STORY MOBILE FIX ── */
+.story-content, .about-text {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
 }
