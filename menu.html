@@ -88,7 +88,8 @@
   </div>
 
   <!-- PAGE HEADER -->
-  <header class="page-header">
+  <header class="page-header page-header--img">
+    <img src="images/artisaningredients1.png" alt="Fresh artisan ingredients laid out for Detroit-style pizza" class="page-header-bg" loading="eager">
     <div class="container page-header-inner">
       <span class="section-label">The Full Menu</span>
       <h1>Built for the Bold &amp; Hungry</h1>
@@ -100,134 +101,379 @@
   <section class="section section--cream" aria-labelledby="deep-dish-title">
     <div class="container">
       <div class="menu-categories" role="list" aria-label="Menu categories">
-        <button class="menu-cat-btn active" aria-pressed="true">All</button>
-        <button class="menu-cat-btn" aria-pressed="false">Deep Dish</button>
-        <button class="menu-cat-btn" aria-pressed="false">Appetizers</button>
-        <button class="menu-cat-btn" aria-pressed="false">Salads</button>
-        <button class="menu-cat-btn" aria-pressed="false">Desserts</button>
-        <button class="menu-cat-btn" aria-pressed="false">Drinks</button>
+        <button class="menu-cat-btn active" data-filter="all" aria-pressed="true">All</button>
+        <button class="menu-cat-btn" data-filter="deep-dish" aria-pressed="false">Deep Dish</button>
+        <button class="menu-cat-btn" data-filter="starters" aria-pressed="false">Starters</button>
+        <button class="menu-cat-btn" data-filter="appetizers" aria-pressed="false">Appetizers</button>
+        <button class="menu-cat-btn" data-filter="salads" aria-pressed="false">Salads</button>
+        <button class="menu-cat-btn" data-filter="desserts" aria-pressed="false">Desserts</button>
+        <button class="menu-cat-btn" data-filter="drinks" aria-pressed="false">Drinks</button>
       </div>
 
       <!-- DEEP DISH -->
-      <h2 class="section-title" id="deep-dish-title">Deep Dish Pies</h2>
-      <p class="section-subtitle">All pies serve 2&ndash;4. Available in Classic 8&quot;, Large 10&quot;, and Party 14&quot;. Gluten-free crust available +$4.</p>
-      <div class="menu-grid mt-40">
-        <article class="menu-card fade-up">
-          <img src="images/menupicture1.PNG" alt="Classic Red Top Detroit pizza" class="menu-card-img" loading="lazy">
-          <div class="menu-card-body">
-            <span class="menu-card-tag">Signature</span>
-            <h3>The Classic Red Top</h3>
-            <p>Wisconsin brick cheese to the edges, topped with our roasted San Marzano tomato sauce in the classic Detroit racing stripe finish.</p>
-            <div class="menu-card-footer">
-              <span class="menu-price">$22</span>
-              <a href="#" class="btn btn-primary demo-trigger">Order</a>
+      <div class="menu-section" data-section="deep-dish">
+        <h2 class="section-title" id="deep-dish-title">Deep Dish Pies</h2>
+        <p class="section-subtitle">All pies serve 2&ndash;4. Available in Classic 8&quot;, Large 10&quot;, and Party 14&quot;. Gluten-free crust available +$4.</p>
+        <div class="menu-grid mt-40">
+          <article class="menu-card fade-up" data-category="deep-dish">
+            <img src="images/menupicture1.PNG" alt="Classic Red Top Detroit pizza" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Signature</span>
+              <h3>The Classic Red Top</h3>
+              <p>Wisconsin brick cheese to the edges, topped with our roasted San Marzano tomato sauce in the classic Detroit racing stripe finish.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$22</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
             </div>
-          </div>
-        </article>
-        <article class="menu-card fade-up">
-          <img src="images/menupicture2.jpg" alt="Pepperoni Motown deep dish pizza" class="menu-card-img" loading="lazy">
-          <div class="menu-card-body">
-            <span class="menu-card-tag">Bestseller</span>
-            <h3>Pepperoni Motown</h3>
-            <p>Double-cupped pepperoni tucked beneath the brick cheese so the heat cups them into crispy, smoky gems. A Detroit staple.</p>
-            <div class="menu-card-footer">
-              <span class="menu-price">$26</span>
-              <a href="#" class="btn btn-primary demo-trigger">Order</a>
+          </article>
+          <article class="menu-card fade-up" data-category="deep-dish">
+            <img src="images/menupicture2.jpg" alt="Pepperoni Motown deep dish pizza" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Bestseller</span>
+              <h3>Pepperoni Motown</h3>
+              <p>Double-cupped pepperoni tucked beneath the brick cheese so the heat cups them into crispy, smoky gems. A Detroit staple.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$26</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
             </div>
-          </div>
-        </article>
-        <article class="menu-card fade-up">
-          <img src="images/menupicture3.jpg" alt="Gratiot Avenue Garden vegetarian pizza" class="menu-card-img" loading="lazy">
-          <div class="menu-card-body">
-            <span class="menu-card-tag">Vegetarian</span>
-            <h3>Gratiot Ave. Garden</h3>
-            <p>Caramelized mushrooms, roasted red peppers, fresh spinach, and garlic olive oil. Proves that meatless can be magnificent.</p>
-            <div class="menu-card-footer">
-              <span class="menu-price">$24</span>
-              <a href="#" class="btn btn-primary demo-trigger">Order</a>
+          </article>
+          <article class="menu-card fade-up" data-category="deep-dish">
+            <img src="images/menupicture3.jpg" alt="Gratiot Avenue Garden vegetarian pizza" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Vegetarian</span>
+              <h3>Gratiot Ave. Garden</h3>
+              <p>Caramelized mushrooms, roasted red peppers, fresh spinach, and garlic olive oil. Proves that meatless can be magnificent.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$24</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
             </div>
-          </div>
-        </article>
-        <article class="menu-card fade-up">
-          <img src="images/menupicture4.jpg" alt="East Side Meat Feast pizza" class="menu-card-img" loading="lazy">
-          <div class="menu-card-body">
-            <span class="menu-card-tag">Meat Lover</span>
-            <h3>East Side Meat Feast</h3>
-            <p>Italian sausage, pepperoni, smoked bacon, and ground beef layered beneath a blanket of brick and mozzarella. Legendary.</p>
-            <div class="menu-card-footer">
-              <span class="menu-price">$29</span>
-              <a href="#" class="btn btn-primary demo-trigger">Order</a>
+          </article>
+          <article class="menu-card fade-up" data-category="deep-dish">
+            <img src="images/menupicture4.jpg" alt="East Side Meat Feast pizza" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Meat Lover</span>
+              <h3>East Side Meat Feast</h3>
+              <p>Italian sausage, pepperoni, smoked bacon, and ground beef layered beneath a blanket of brick and mozzarella. Legendary.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$29</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
             </div>
-          </div>
-        </article>
-        <article class="menu-card fade-up">
-          <img src="images/womaneatinpizza.jpg" alt="White pizza with ricotta" class="menu-card-img" loading="lazy">
-          <div class="menu-card-body">
-            <span class="menu-card-tag">House Specialty</span>
-            <h3>The White Out</h3>
-            <p>House-made ricotta, garlic cream sauce, fresh basil, sun-dried tomatoes, and a drizzle of chili oil. No red sauce — all impact.</p>
-            <div class="menu-card-footer">
-              <span class="menu-price">$25</span>
-              <a href="#" class="btn btn-primary demo-trigger">Order</a>
+          </article>
+          <article class="menu-card fade-up" data-category="deep-dish">
+            <img src="images/womaneatinpizza.jpg" alt="White pizza with ricotta" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">House Specialty</span>
+              <h3>The White Out</h3>
+              <p>House-made ricotta, garlic cream sauce, fresh basil, sun-dried tomatoes, and a drizzle of chili oil. No red sauce — all impact.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$25</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
             </div>
-          </div>
-        </article>
-        <article class="menu-card fade-up">
-          <img src="images/maneatingpizza.jpg" alt="Buffalo Chicken deep dish pizza" class="menu-card-img" loading="lazy">
-          <div class="menu-card-body">
-            <span class="menu-card-tag">Fan Favorite</span>
-            <h3>Buffalo Belle Isle</h3>
-            <p>Crispy buffalo chicken, celery-infused cream cheese, brick mozzarella, and a finishing drizzle of hot honey. Addictive.</p>
-            <div class="menu-card-footer">
-              <span class="menu-price">$27</span>
-              <a href="#" class="btn btn-primary demo-trigger">Order</a>
+          </article>
+          <article class="menu-card fade-up" data-category="deep-dish">
+            <img src="images/maneatingpizza.jpg" alt="Buffalo Chicken deep dish pizza" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Fan Favorite</span>
+              <h3>Buffalo Belle Isle</h3>
+              <p>Crispy buffalo chicken, celery-infused cream cheese, brick mozzarella, and a finishing drizzle of hot honey. Addictive.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$27</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
+      </div>
+
+      <!-- STARTERS & SIDES -->
+      <div class="menu-section" data-section="starters">
+        <h2 class="section-title menu-section-heading" id="apps-title">Starters &amp; Sides</h2>
+        <p class="section-subtitle">The perfect warm-up while your pie bakes.</p>
+        <div class="menu-grid mt-40">
+          <article class="menu-card fade-up" data-category="starters">
+            <img src="images/garlic-knot-starter.png" alt="Golden garlic knots with marinara dipping sauce" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Starter</span>
+              <h3>Garlic Knots (6)</h3>
+              <p>Pillowy knots of our scratch dough, bathed in roasted garlic butter and fresh herbs. Served with house marinara.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$9</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
+            </div>
+          </article>
+          <article class="menu-card fade-up" data-category="starters">
+            <img src="images/breadsticks-starter.png" alt="Detroit-style focaccia breadsticks with whipped ricotta" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Starter</span>
+              <h3>Detroit-Style Bread Sticks</h3>
+              <p>Focaccia-style breadsticks from our deep dish dough base, topped with romano and served with whipped ricotta.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$10</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
+            </div>
+          </article>
+          <article class="menu-card fade-up" data-category="starters">
+            <img src="images/chop-salad-starter.png" alt="Eastern Market chopped salad with house vinaigrette" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Starter</span>
+              <h3>Eastern Market Chop</h3>
+              <p>Seasonal greens, cherry tomatoes, cucumber, kalamata olives, red onion, and house vinaigrette from local Eastern Market herbs.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$12</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
 
       <!-- APPETIZERS -->
-      <h2 class="section-title mt-72" id="apps-title">Starters &amp; Sides</h2>
-      <p class="section-subtitle">The perfect warm-up while your pie bakes.</p>
-      <div class="menu-grid mt-40">
-        <article class="menu-card fade-up">
-          <div class="menu-card-body pt-32">
-            <span class="menu-card-tag">Starter</span>
-            <h3>Garlic Knots (6)</h3>
-            <p>Pillowy knots of our scratch dough, bathed in roasted garlic butter and fresh herbs. Served with house marinara.</p>
-            <div class="menu-card-footer">
-              <span class="menu-price">$9</span>
-              <a href="#" class="btn btn-primary demo-trigger">Order</a>
+      <div class="menu-section" data-section="appetizers">
+        <h2 class="section-title menu-section-heading" id="appetizers-title">Appetizers</h2>
+        <p class="section-subtitle">Shareable bites built for the table.</p>
+        <div class="menu-grid mt-40">
+          <article class="menu-card fade-up" data-category="appetizers">
+            <img src="images/chickenbites-appetizer.png" alt="Crispy chicken bites with dipping sauce" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Appetizer</span>
+              <h3>Crispy Chicken Bites</h3>
+              <p>Golden-fried chicken tenders tossed in your choice of house buffalo, honey-garlic, or classic ranch. A crowd favorite every time.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$13</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
             </div>
-          </div>
-        </article>
-        <article class="menu-card fade-up">
-          <div class="menu-card-body pt-32">
-            <span class="menu-card-tag">Starter</span>
-            <h3>Detroit-Style Bread Sticks</h3>
-            <p>Focaccia-style breadsticks from our deep dish dough base, topped with romano and served with whipped ricotta.</p>
-            <div class="menu-card-footer">
-              <span class="menu-price">$10</span>
-              <a href="#" class="btn btn-primary demo-trigger">Order</a>
+          </article>
+          <article class="menu-card fade-up" data-category="appetizers">
+            <img src="images/cocktail-shrimp-shot-appetizer.png" alt="Chilled cocktail shrimp shooters with zesty sauce" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Appetizer</span>
+              <h3>Cocktail Shrimp Shots</h3>
+              <p>Chilled jumbo shrimp served in individual shot glasses with house-made zesty cocktail sauce and a lemon wedge.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$14</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
             </div>
-          </div>
-        </article>
-        <article class="menu-card fade-up">
-          <div class="menu-card-body pt-32">
-            <span class="menu-card-tag">Salad</span>
-            <h3>Eastern Market Chop</h3>
-            <p>Seasonal greens, cherry tomatoes, cucumber, kalamata olives, red onion, and house vinaigrette from local Eastern Market herbs.</p>
-            <div class="menu-card-footer">
-              <span class="menu-price">$12</span>
-              <a href="#" class="btn btn-primary demo-trigger">Order</a>
+          </article>
+          <article class="menu-card fade-up" data-category="appetizers">
+            <img src="images/softpretzel-appetizer.png" alt="Warm soft pretzel with cheese dipping sauce" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Appetizer</span>
+              <h3>Steel Pan Soft Pretzel</h3>
+              <p>Oversized hand-twisted soft pretzel, baked golden and salted, served with warm brick cheese dipping sauce and spicy brown mustard.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$11</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+          <article class="menu-card fade-up" data-category="appetizers">
+            <img src="images/gooey-cheese-pan-appetizer.png" alt="Gooey baked cheese pan with crusty bread" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Appetizer</span>
+              <h3>Gooey Cheese Pan</h3>
+              <p>Brick and mozzarella baked bubbling in a mini steel pan with roasted garlic and herbs. Served with toasted crostini for dipping.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$12</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
+            </div>
+          </article>
+          <article class="menu-card fade-up" data-category="appetizers">
+            <img src="images/mac-cheese-frico-bites-appetizer.png" alt="Mac and cheese frico bites with crispy cheese crust" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Appetizer</span>
+              <h3>Mac &amp; Cheese Frico Bites</h3>
+              <p>Creamy mac and cheese formed into bites, wrapped in a crispy frico cheese crust. Addictive, shareable, and gone too fast.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$12</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
+            </div>
+          </article>
+          <article class="menu-card fade-up" data-category="appetizers">
+            <img src="images/pesto-pasta-pinwheels-appetizer.png" alt="Pesto pasta pinwheel rolls" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Appetizer</span>
+              <h3>Pesto Pasta Pinwheels</h3>
+              <p>Fresh pasta rolled with house-made basil pesto, sun-dried tomatoes, and ricotta, then sliced and baked until golden. Light yet satisfying.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$11</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
+
+      <!-- SALADS -->
+      <div class="menu-section" data-section="salads">
+        <h2 class="section-title menu-section-heading" id="salads-title">Salads</h2>
+        <p class="section-subtitle">Fresh, local, and built to complement any pie.</p>
+        <div class="menu-grid mt-40">
+          <article class="menu-card fade-up" data-category="salads">
+            <img src="images/salad2.png" alt="Classic house garden salad with seasonal greens" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Salad</span>
+              <h3>House Garden Salad</h3>
+              <p>Mixed greens, shaved carrots, cucumber ribbons, grape tomatoes, red onion, and house Italian dressing. Simple and crisp.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$10</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
+            </div>
+          </article>
+          <article class="menu-card fade-up" data-category="salads">
+            <img src="images/salad3.png" alt="Roasted beet and arugula salad with goat cheese" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Salad</span>
+              <h3>Roasted Beet &amp; Arugula</h3>
+              <p>Roasted golden beets, peppery arugula, candied walnuts, crumbled goat cheese, and a honey-balsamic glaze. Rich and seasonal.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$13</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
+            </div>
+          </article>
+          <article class="menu-card fade-up" data-category="salads">
+            <img src="images/salad4.png" alt="Kale Caesar salad with shaved parmesan and croutons" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Salad</span>
+              <h3>Kale Caesar</h3>
+              <p>Massaged lacinato kale, house Caesar dressing, shaved parmesan, house-made focaccia croutons, and a squeeze of lemon.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$12</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- DESSERTS -->
+      <div class="menu-section" data-section="desserts">
+        <h2 class="section-title menu-section-heading" id="desserts-title">Desserts</h2>
+        <p class="section-subtitle">Detroit-inspired finishes worth saving room for.</p>
+        <div class="menu-grid mt-40">
+          <article class="menu-card fade-up" data-category="desserts">
+            <img src="images/baked-brie-fruit-compote-dessert.png" alt="Baked brie with warm fruit compote and crostini" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Dessert</span>
+              <h3>Baked Brie &amp; Fruit Compote</h3>
+              <p>Whole wheel of brie baked until molten, topped with warm seasonal fruit compote, candied pecans, and honey. Served with crostini.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$13</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
+            </div>
+          </article>
+          <article class="menu-card fade-up" data-category="desserts">
+            <img src="images/dessert-smores-pan-dessert.png" alt="S'mores baked in a mini steel pan" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Dessert</span>
+              <h3>S'mores Steel Pan</h3>
+              <p>Graham cracker crust, dark chocolate ganache, and house-toasted marshmallow — baked and served bubbling in a mini steel pan. Pure nostalgia.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$11</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
+            </div>
+          </article>
+          <article class="menu-card fade-up" data-category="desserts">
+            <img src="images/frico-chocolate-caramel-square-desert.png" alt="Frico chocolate caramel dessert square" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Dessert</span>
+              <h3>Frico Chocolate Caramel Square</h3>
+              <p>Our signature frico technique applied to dessert — a crispy cheese-and-caramel base topped with dark chocolate ganache and sea salt flake.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$10</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
+            </div>
+          </article>
+          <article class="menu-card fade-up" data-category="desserts">
+            <img src="images/skillet-cookie-deep-dish-dessert.png" alt="Deep dish skillet cookie with ice cream" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Dessert</span>
+              <h3>Deep Dish Skillet Cookie</h3>
+              <p>Warm chocolate chip and brown butter cookie baked deep dish style, served straight from the pan with a scoop of vanilla bean ice cream.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$12</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- DRINKS -->
+      <div class="menu-section" data-section="drinks">
+        <h2 class="section-title menu-section-heading" id="drinks-title">Drinks</h2>
+        <p class="section-subtitle">House crafted and Detroit-inspired. Non-alcoholic and spirited options available.</p>
+        <div class="menu-grid mt-40">
+          <article class="menu-card fade-up" data-category="drinks">
+            <img src="images/bourbon-beyond-drink.png" alt="Bourbon Beyond signature cocktail" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Drink</span>
+              <h3>Bourbon Beyond</h3>
+              <p>Smooth Michigan bourbon, house-smoked simple syrup, Angostura bitters, and an orange peel. Our riff on an old fashioned — elevated.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$14</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
+            </div>
+          </article>
+          <article class="menu-card fade-up" data-category="drinks">
+            <img src="images/pan-shakes-drink.png" alt="Steel Pan signature thick milkshake" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Drink</span>
+              <h3>Pan Shakes</h3>
+              <p>Extra-thick hand-spun milkshakes in rotating flavors: salted caramel, dark chocolate, vanilla bean, and seasonal specials. Ask your server.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$9</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
+            </div>
+          </article>
+          <article class="menu-card fade-up" data-category="drinks">
+            <img src="images/deep-deep-gold-drink.png" alt="Deep Deep Gold craft lemonade cocktail" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Drink</span>
+              <h3>Deep Deep Gold</h3>
+              <p>House-pressed lemonade, turmeric, ginger, Michigan honey, and a touch of cayenne. Served over crushed ice. Bright, bold, refreshing.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$7</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
+            </div>
+          </article>
+          <article class="menu-card fade-up" data-category="drinks">
+            <img src="images/cherry-limeade-drink.png" alt="Fresh cherry limeade with mint garnish" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <span class="menu-card-tag">Drink</span>
+              <h3>Cherry Limeade</h3>
+              <p>Fresh-squeezed lime juice, real Michigan tart cherry syrup, sparkling water, and a mint sprig. House-made and always refreshing.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">$6</span>
+                <a href="#" class="btn btn-primary demo-trigger">Order</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- CTA BAND -->
+    <!-- CTA BAND -->
   <div class="cta-band">
     <h2>Can't Decide? Build Your Own.</h2>
     <p>Choose your crust, sauce, cheese, and up to 8 toppings. Every combination is a classic in the making.</p>
@@ -321,14 +567,45 @@
     }, { threshold: 0.1 });
     fadeEls.forEach(el => observer.observe(el));
 
-    // Menu category tabs (visual only)
-    document.querySelectorAll('.menu-cat-btn').forEach(btn => {
+    // ---- Menu category filter (fully functional) ----
+    const filterBtns = document.querySelectorAll('.menu-cat-btn');
+    const menuSections = document.querySelectorAll('.menu-section');
+
+    function applyFilter(filter) {
+      menuSections.forEach(section => {
+        const sectionKey = section.dataset.section;
+        // Show/hide entire section wrapper
+        const show = (filter === 'all' || filter === sectionKey);
+        section.style.display = show ? '' : 'none';
+        // Remove top margin on first visible section to prevent gap
+        section.classList.remove('menu-section--first');
+      });
+
+      // Add top-margin class only to the first visible section
+      const visibleSections = Array.from(menuSections).filter(s => s.style.display !== 'none');
+      if (visibleSections.length > 0) {
+        visibleSections[0].classList.add('menu-section--first');
+      }
+
+      // Re-trigger fade-up for newly visible cards
+      document.querySelectorAll('.menu-section[style=""] .fade-up, .menu-section:not([style]) .fade-up').forEach(el => {
+        if (!el.classList.contains('is-visible')) {
+          el.classList.add('is-visible');
+        }
+      });
+    }
+
+    filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.menu-cat-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+        filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
         btn.classList.add('active');
         btn.setAttribute('aria-pressed', 'true');
+        applyFilter(btn.dataset.filter);
       });
     });
+
+    // Init: all visible
+    applyFilter('all');
   </script>
 </body>
 </html>
