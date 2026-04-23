@@ -1708,6 +1708,53 @@ p {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+
+/* --- TABLET NAV FIX: 769px–1060px ---
+   Targets only the range where links overflow but mobile menu
+   is not yet active. Desktop (>1060px) and mobile (≤768px)
+   are completely untouched.
+   ---------------------------------------------------------- */
+@media (min-width: 769px) and (max-width: 1060px) {
+  /* Shrink logo text so it stops crowding the links */
+  .nav-logo-text {
+    font-size: 0.95rem;
+  }
+
+  .nav-logo-text span {
+    display: none; /* hide "Detroit Style Deep Dish" tagline */
+  }
+
+  .nav-logo-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* Tighten link spacing */
+  .nav-links {
+    gap: 2px;
+  }
+
+  .nav-links a {
+    font-size: 0.78rem;
+    padding: 7px 9px;
+    letter-spacing: 0;
+  }
+
+  /* Shrink the CTA button so it doesn't wrap */
+  .nav-links a.nav-cta {
+    font-size: 0.78rem;
+    padding: 8px 12px;
+    margin-left: 4px;
+    white-space: nowrap;
+  }
+
+  /* Slightly reduce inner padding */
+  .nav-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
 @media (max-width: 1024px) {
   .split {
     grid-template-columns: 1fr;
@@ -1872,47 +1919,4 @@ p {
   opacity: 1;
   overflow: visible;
   line-height: 1.6;
-}
-/* ═══════════════════════════════════════════════
-   FINAL DYSON DIGITAL GOLD STANDARD PATCH
-   (Add to bottom of style.css)
-═══════════════════════════════════════════════ */
-
-/* 1. LAYER COMMAND (Fixes Ghost Buttons) */
-:root {
-  --z-nav:    1000;
-  --z-menu:   1100;
-  --z-close:  1200; /* Absolute Top */
-  --z-modal:  9999;
-}
-
-.navbar { z-index: var(--z-nav); }
-.mobile-menu { z-index: var(--z-menu); }
-.mobile-menu-close, .lightbox-close { z-index: var(--z-close) !important; }
-.demo-modal-bg, .lightbox { z-index: var(--z-modal); }
-
-/* 2. OUR STORY MOBILE ALIGNMENT (Fixes the "Claude Shortcut") */
-@media (max-width: 768px) {
-  .story-content, .timeline-body, .pillar-card, .package-card {
-    padding-left: 25px !important;
-    padding-right: 25px !important;
-    text-align: left !important; /* Professional Detroit Craft Aligned */
-  }
-}
-
-/* 3. VERTICAL RHYTHM (Fixes the "Bunched Up" look) */
-section, .section, .page-header {
-  padding-top: 90px !important;
-  padding-bottom: 90px !important;
-}
-
-.hero-title, .section-title {
-  margin-bottom: 32px !important;
-}
-
-/* 4. FOOTER LINK RECOGNITION */
-.footer-bottom a {
-  display: inline-block;
-  padding: 4px 0;
-  border-bottom: 1px solid var(--gold); /* Makes the portfolio link pop */
 }
