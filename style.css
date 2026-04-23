@@ -550,19 +550,44 @@ p {
   text-align: center;
   position: relative;
   overflow: hidden;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Default radial tint (no bg photo) */
 .page-header::before {
   content: '';
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse at 70% 50%, rgba(192,57,43,0.18) 0%, transparent 70%);
   pointer-events: none;
+  z-index: 1;
+}
+
+/* --- Photo-backed page headers --- */
+.page-header--img .page-header-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.38;
+  z-index: 0;
+}
+
+/* Darken overlay for photo headers */
+.page-header--img::before {
+  background: linear-gradient(to bottom, rgba(26,26,26,0.72) 0%, rgba(26,26,26,0.58) 100%);
+  z-index: 1;
 }
 
 .page-header-inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  width: 100%;
 }
 
 .page-header h1 {
@@ -577,7 +602,7 @@ p {
 
 .page-header p {
   font-size: 1.05rem;
-  color: rgba(250,247,242,0.72);
+  color: rgba(250,247,242,0.82);
   max-width: 540px;
   margin-left: auto;
   margin-right: auto;
@@ -589,12 +614,7 @@ p {
 /* ============================================================
    FEATURES / PILLARS
    ============================================================ */
-.pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 32px;
-  margin-top: 56px;
-}
+
 
 .pillar-card {
   text-align: center;
@@ -680,8 +700,64 @@ p {
   padding: 64px 56px;
 }
 
+/* When split-body also carries section--dark, ensure text is readable */
+.split-body.section--dark {
+  background-color: var(--charcoal);
+  color: var(--cream);
+}
+
+.split-body.section--dark h2,
+.split-body.section--dark h3,
+.split-body.section--dark .section-title {
+  color: var(--cream);
+}
+
+.split-body.section--dark .section-subtitle {
+  color: rgba(250,247,242,0.75);
+}
+
+.split-body.section--dark .section-label {
+  color: var(--gold);
+}
+
+/* section-label inside photo page headers should be gold, not red */
+.page-header--img .section-label {
+  color: var(--gold);
+}
+
 .split-body .section-subtitle {
   margin-bottom: 32px;
+}
+
+/* menu-grid: prevent 280px minimum from overflowing narrow phones */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: 28px;
+}
+
+/* pillars-grid: safer minimum for very small screens */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 32px;
+  margin-top: 56px;
+}
+
+/* ============================================================
+   MENU SECTION WRAPPERS (filter show/hide + spacing)
+   ============================================================ */
+.menu-section {
+  margin-top: 56px;
+}
+
+.menu-section--first,
+.menu-section:first-of-type {
+  margin-top: 0;
+}
+
+.menu-section-heading {
+  margin-top: 0;
 }
 
 /* ============================================================
@@ -717,11 +793,7 @@ p {
   color: var(--white);
 }
 
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 28px;
-}
+
 
 .menu-card {
   border-radius: var(--radius-lg);
@@ -1198,21 +1270,11 @@ p {
   transform: translateY(-4px);
 }
 
-.location-map-placeholder {
+.location-card-img {
   width: 100%;
   height: 200px;
-  background: linear-gradient(135deg, var(--charcoal) 0%, #2d2d2d 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.location-map-placeholder::before {
-  content: '📍';
-  font-size: 3rem;
-  opacity: 0.5;
+  object-fit: cover;
+  display: block;
 }
 
 .location-card-body {
@@ -1853,15 +1915,22 @@ p {
   }
 
   .timeline-item {
-    grid-template-columns: 72px 1fr;
+    grid-template-columns: 60px 1fr;
+    gap: 28px;
   }
 
   .timeline-item::before {
-    left: 35px;
+    left: 68px;
   }
 
   .timeline-dot {
-    left: 29px;
+    left: 61px;
+  }
+
+  .timeline-year {
+    font-size: 1.05rem;
+    text-align: left;
+    padding-top: 6px;
   }
 
   .gallery-grid {
@@ -1919,4 +1988,61 @@ p {
   opacity: 1;
   overflow: visible;
   line-height: 1.6;
+}
+
+/* ============================================================
+   GAP FIXES: Consecutive same-colour sections
+   Remove top padding from sections that directly follow
+   another section of the same background colour so there
+   is no double-padding white/dark gap between them.
+   ============================================================ */
+
+/* index.html: menu-preview (dark) + testimonials (dark) back-to-back */
+.section--no-top-pad {
+  padding-top: 0;
+}
+
+/* story.html: cream story-body + cream timeline — no gap */
+.section--cream + .section--cream {
+  padding-top: 0;
+}
+
+/* contact.html & locations.html: cream + cream after split */
+/* Handled by .section--no-top-pad on the second section */
+
+/* ============================================================
+   PAGE HEADER: MOBILE PADDING REDUCTION
+   ============================================================ */
+@media (max-width: 768px) {
+  .page-header {
+    padding-top: 52px;
+    padding-bottom: 52px;
+    min-height: 280px;
+  }
+
+  .page-header h1 {
+    font-size: clamp(1.9rem, 7vw, 2.8rem);
+  }
+
+  .split-body {
+    padding: 40px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header {
+    padding-top: 44px;
+    padding-bottom: 44px;
+    min-height: 240px;
+  }
+
+  .menu-cat-btn {
+    font-size: 0.75rem;
+    padding: 8px 14px;
+  }
+
+  /* Prevent menu grid cards from being too narrow */
+  .menu-card-img {
+    height: 180px;
+  }
 }
